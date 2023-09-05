@@ -1,6 +1,6 @@
 ﻿namespace SugarDemo.Application
 {
-    public class RoleService : IRoleService, ITransient
+    public class RoleService : IRoleService, IScoped
     {
         private readonly IRepository<RoleTB> _roleService;
         private readonly IRepository<MenuTB> _menuService;

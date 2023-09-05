@@ -1,6 +1,6 @@
 ﻿namespace SugarDemo.Application
 {
-    public class UserService : IUserService, ITransient
+    public class UserService : IUserService, IScoped
     {
         private readonly IRepository<UserTB> _userService;
         private readonly IRepository<MenuTB> _menuService;

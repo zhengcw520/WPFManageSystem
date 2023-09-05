@@ -7,7 +7,7 @@
         {
             _service = service;
         }
-        public async Task<List<MenuDto>> GetPageListAsync(FindParameter FindParameter)
+        public async Task<List<MenuDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
         {
            return await _service.GetPageListAsync(FindParameter);
         }

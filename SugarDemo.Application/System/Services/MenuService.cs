@@ -1,6 +1,6 @@
 ﻿namespace SugarDemo.Application
 {
-    public class MenuService : IMenuService,ITransient
+    public class MenuService : IMenuService,IScoped
     {
         private readonly IRepository<MenuTB> _menuService;
         public MenuService(IRepository<MenuTB> menuService)
