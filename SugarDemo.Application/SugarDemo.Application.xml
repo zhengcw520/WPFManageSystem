@@ -35,6 +35,112 @@
             用户
             </summary>
         </member>
+        <member name="T:SugarDemo.Application.MenuAppService">
+            <summary>
+            菜单服务接口
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.MenuAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="FindParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.MenuAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.MenuAppService.GetSingleAsync(System.Int32)">
+            <summary>
+            获取单个数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.MenuAppService.AddOrUpdateAsync(SugarDemo.Application.MenuDto)">
+            <summary>
+            新增修改数据
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.MenuAppService.DeleteAsync(System.Int32)">
+            <summary>
+            删除单个菜单数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Application.RoleAppService">
+            <summary>
+            角色服务接口
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="FindParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.GetSingleAsync(System.Int32)">
+            <summary>
+            获取单个用户数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
+            <summary>
+            新增或修改数据
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.DeleteAsync(System.Int32)">
+            <summary>
+            删除单条数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.GetMenusByRoleIdAsync(System.Int32)">
+            <summary>
+            根据角色id获取角色用户的菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.GetUsersByRoleIdAsync(System.Int32)">
+            <summary>
+            根据角色获取所拥有的用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量更新角色
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleAppService.BatchInsertAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量插入角色
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:SugarDemo.Application.RoleService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
             <summary>
             单个实体的新增与修改
@@ -93,6 +199,59 @@
             <summary>
             获取系统描述
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Application.UserAppService">
+            <summary>
+            用户服务接口
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="FindParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.GetSingleAsync(System.Int32)">
+            <summary>
+            通过Id获取单个数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.AddOrUpdateAsync(SugarDemo.Application.UserTBDto)">
+            <summary>
+            新增或更新数据
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.DeleteAsync(System.Int32)">
+            <summary>
+            删除单条数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.GetMenusByUserIdAsync(System.Int32)">
+            <summary>
+            获取单个用户拥有的菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserAppService.GetRolesByUserIdAsync(System.Int32)">
+            <summary>
+            获取单个用户拥有的角色
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
     </members>

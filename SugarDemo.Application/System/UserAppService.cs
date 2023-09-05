@@ -1,5 +1,8 @@
 ﻿namespace SugarDemo.Application
 {
+    /// <summary>
+    /// 用户服务接口
+    /// </summary>
     public class UserAppService : IDynamicApiController
     {
         private readonly IUserService _service;
@@ -7,30 +10,68 @@
         {
             _service = service;
         }
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <param name="FindParameter"></param>
+        /// <returns></returns>
         public async Task<List<UserTBDto>> GetPageListAsync([FromQuery]FindParameter FindParameter) 
         {
             return await _service.GetPageListAsync(FindParameter);
         }
+        /// <summary>
+        /// 获取所有数据
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<UserTBDto>> GetAllAsync() 
         {
             return await _service.GetAllAsync();
         }
+        /// <summary>
+        /// 通过Id获取单个数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<UserTBDto> GetSingleAsync(int id) 
         { 
             return await _service.GetSingleAsync(id); 
         }
+
+        /// <summary>
+        /// 新增或更新数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<bool> AddOrUpdateAsync(UserTBDto model)
         { 
             return await _service.AddOrUpdateAsync(model);
         }
+
+        /// <summary>
+        /// 删除单条数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteAsync(int id)
         {
            return await _service.DeleteAsync(id);
         }
+
+        /// <summary>
+        /// 获取单个用户拥有的菜单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Task<List<MenuDto>> GetMenusByUserIdAsync(int id) 
         {
             return _service.GetMenusByUserIdAsync(id);
         }
+
+        /// <summary>
+        /// 获取单个用户拥有的角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Task<List<RoleDto>> GetRolesByUserIdAsync(int id) 
         { 
             return _service.GetRolesByUserIdAsync(id);
