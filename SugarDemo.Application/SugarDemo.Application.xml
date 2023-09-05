@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SugarDemo.Application</name>
+    </assembly>
+    <members>
+        <member name="M:SugarDemo.Application.BaseDto.OnPropertyChanged(System.String)">
+            <summary>
+            实现通知更新
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="T:SugarDemo.Application.MenuDto">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Application.RoleDto">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Application.RoleMenuDto">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Application.UserRoleDto">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Application.UserTBDto">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.RoleService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
+            <summary>
+            单个实体的新增与修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleService.DeleteAsync(System.Int32)">
+            <summary>
+            单行的删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleService.BatchInsertAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量插入角色菜单
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleService.BatchUpdateAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量更新角色菜单
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.RoleService.BatchUpdateRoleTBAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量更新角色菜单
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserService.GetRolesByUserIdAsync(System.Int32)">
+            <summary>
+             根据用户Id获取所有角色
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SugarDemo.Application.UserService.BatchUpdateUserRoleTBAsync(SugarDemo.Application.UserBatchModel)">
+            <summary>
+            批量更新用户角色菜单
+            </summary>
+            <param name="modelPa"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Application.SystemAppService">
+            <summary>
+            系统服务接口
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.SystemAppService.GetDescription">
+            <summary>
+            获取系统描述
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

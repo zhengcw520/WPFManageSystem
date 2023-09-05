@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SugarDemo.Core</name>
+    </assembly>
+    <members>
+        <member name="T:SugarDemo.Core.DbContext">
+            <summary>
+            数据库上下文对象
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Core.DbContext.AddSqlSugarSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            SqlSugar 数据库实例
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Core.IRepository`1.CommQuery(System.String)">
+            <summary>
+            扩展方法，自带方法不能满足的时候可以添加新方法
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1 @@
+﻿&"./tools/cli.ps1" -DbProvider "Microsoft.EntityFrameworkCore.SqlServer" -CoreProject "SugarDemo.Core" -EntryProject "SugarDemo.Web.Entry" -ConnectionName "default"
