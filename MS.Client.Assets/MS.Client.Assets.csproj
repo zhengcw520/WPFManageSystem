@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\iconfont.ttf" />
+    <None Remove="Fonts\MyFonts\iconfont.ttf" />
+    <None Remove="Images\01.gif" />
+    <None Remove="Images\02.jpg" />
+    <None Remove="Images\03.jpg" />
+    <None Remove="Images\04.jpg" />
+    <None Remove="Images\Login.png" />
+    <None Remove="Images\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HandyControl" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MS.Client.Common\MS.Client.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\iconfont.ttf" />
+    <Resource Include="Fonts\MyFonts\iconfont.ttf" />
+    <Resource Include="Images\01.gif" />
+    <Resource Include="Images\02.jpg" />
+    <Resource Include="Images\03.jpg" />
+    <Resource Include="Images\04.jpg" />
+    <Resource Include="Images\Login.png" />
+    <Resource Include="Images\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
+</Project>

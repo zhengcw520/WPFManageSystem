@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<services>
+	<service display="生产库">
+		<updateService></updateService>
+		<serviceBaseUri>https://localhost:44342/api/</serviceBaseUri>
+	</service>
+	<service display="测试库">
+		<updateService></updateService>
+		<serviceBaseUri>https://localhost:44342/api/</serviceBaseUri>
+	</service>
+	<service display="开发库">
+		<updateService></updateService>
+		<serviceBaseUri>https://localhost:44342/api/</serviceBaseUri>
+	</service>
+</services>

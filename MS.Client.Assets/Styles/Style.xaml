@@ -1,0 +1,1083 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:MS.Client.Common.Attach;assembly=MS.Client.Common">
+    <Style x:Key="ControlBtnStyle" TargetType="Button">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Foreground" Value="#959595" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="back" Background="Transparent">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="../Fonts/#iconfont"
+                            FontSize="16"
+                            Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="back" Property="Background" Value="#f8f9fb" />
+                            <Setter TargetName="back" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="IconBtn" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="{TemplateBinding local:IconElement.Icon}" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        x:Key="AddBtnStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="BorderBrush" Value="#a3d3ff" />
+        <Setter Property="Foreground" Value="#1890ff" />
+        <Setter Property="Background" Value="#e8f4ff" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="&#xe68d;" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1890ff" />
+                <Setter Property="BorderBrush" Value="#1890ff" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="EditBtnStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="BorderBrush" Value="#a1ebc2" />
+        <Setter Property="Foreground" Value="#13ce66" />
+        <Setter Property="Background" Value="#e7faf0" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="&#xe684;" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#13ce66" />
+                <Setter Property="BorderBrush" Value="#13ce66" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="DelBtnStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="BorderBrush" Value="#ffb6b6" />
+        <Setter Property="Foreground" Value="#ff4949" />
+        <Setter Property="Background" Value="#ffeded" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="&#xe678;" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ff4949" />
+                <Setter Property="BorderBrush" Value="#ff4949" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="GrantUserBtnStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="90" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="BorderBrush" Value="#a1ebc2" />
+        <Setter Property="Foreground" Value="#13ce66" />
+        <Setter Property="Background" Value="LightGreen" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="&#xe684;" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#13ce66" />
+                <Setter Property="BorderBrush" Value="#13ce66" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="GrantMenuBtnStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="90" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="BorderBrush" Value="#a1ebc2" />
+        <Setter Property="Foreground" Value="#13ce66" />
+        <Setter Property="Background" Value="LightBlue" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Fonts/MyFonts/#iconfont"
+                                    FontSize="13"
+                                    Text="&#xe684;" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#13ce66" />
+                <Setter Property="BorderBrush" Value="#13ce66" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="MyTabControlStyle" TargetType="{x:Type hc:TabControl}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hc:TabControl}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid
+                            x:Name="templateRoot"
+                            ClipToBounds="True"
+                            KeyboardNavigation.TabNavigation="Local"
+                            SnapsToDevicePixels="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0" />
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border
+                                Padding="15,5,5,5"
+                                Panel.ZIndex="997"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="0,0,0,0">
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="5"
+                                        Direction="315"
+                                        Opacity="0.13"
+                                        ShadowDepth="4"
+                                        Color="#001529" />
+                                </Border.Effect>
+                                <hc:TabPanel
+                                    x:Name="PART_HeaderPanel"
+                                    MinHeight="{TemplateBinding TabItemHeight}"
+                                    Margin="0,0,-1,-1"
+                                    HorizontalAlignment="Left"
+                                    Background="{DynamicResource SecondaryTextBrush}"
+                                    IsItemsHost="True"
+                                    IsTabFillEnabled="{TemplateBinding IsTabFillEnabled}"
+                                    KeyboardNavigation.TabIndex="1"
+                                    TabItemHeight="{TemplateBinding TabItemHeight}"
+                                    TabItemWidth="{TemplateBinding TabItemWidth}" />
+                            </Border>
+                            <Border
+                                x:Name="contentPanel"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Background="{DynamicResource SecondaryRegionBrush}"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter
+                                    x:Name="PART_SelectedContentHost"
+                                    Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding SelectedContent}"
+                                    ContentSource="SelectedContent"
+                                    ContentStringFormat="{TemplateBinding SelectedContentStringFormat}"
+                                    ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Border>
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="0,-1,0,0"
+                                HorizontalAlignment="Right"
+                                Background="{DynamicResource RegionBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1,0,0,1"
+                                Visibility="{Binding Visibility, ElementName=PART_OverflowButton}">
+                                <hc:ContextMenuToggleButton
+                                    x:Name="PART_OverflowButton"
+                                    hc:IconElement.Geometry="M512,801.6896L5.12,282.0096 63.2832,222.4128 512,682.3936 960.7168,222.3104 1018.88,281.9072 512,801.6896z"
+                                    hc:IconSwitchElement.GeometrySelected="M50.000001,0L100,51.262779 94.262627,57.141584 50.000001,11.767713 5.7373757,57.151686 0,51.27288z"
+                                    Menu="{x:Null}"
+                                    Visibility="Collapsed">
+                                    <hc:ContextMenuToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Border
+                                                            Background="{TemplateBinding Background}"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                                            <ContentControl Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                <Path
+                                                                    x:Name="PathIcon"
+                                                                    Width="{TemplateBinding hc:IconElement.Width}"
+                                                                    Height="{TemplateBinding hc:IconElement.Height}"
+                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                    Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                    Fill="{TemplateBinding Foreground}"
+                                                                    SnapsToDevicePixels="True"
+                                                                    Stretch="Uniform" />
+                                                            </ContentControl>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter TargetName="PathIcon" Property="Data" Value="{Binding (hc:IconSwitchElement.GeometrySelected), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.BasedOn>
+                                                <Style TargetType="{x:Type ToggleButton}">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+                                                    <Setter Property="Width" Value="30" />
+                                                    <Setter Property="Height" Value="30" />
+                                                    <Setter Property="Padding" Value="8" />
+                                                    <Setter Property="hc:IconElement.Geometry" Value="{x:Null}" />
+                                                    <Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{x:Null}" />
+                                                    <Setter Property="hc:BorderElement.CornerRadius" Value="4" />
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                                                    <Setter Property="BorderThickness" Value="0" />
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                <hc:SimplePanel>
+                                                                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                    <Border
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                                        CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                        <ContentControl
+                                                                            Margin="{TemplateBinding Padding}"
+                                                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                            <Path
+                                                                                x:Name="PathIcon"
+                                                                                Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                Fill="{TemplateBinding Foreground}"
+                                                                                SnapsToDevicePixels="True"
+                                                                                Stretch="Uniform" />
+                                                                        </ContentControl>
+                                                                    </Border>
+                                                                    <Border
+                                                                        x:Name="BorderChecked"
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="4"
+                                                                        CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                                                        Visibility="Collapsed" />
+                                                                </hc:SimplePanel>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsChecked" Value="True">
+                                                                        <Setter TargetName="PathIcon" Property="Data" Value="{Binding (hc:IconSwitchElement.GeometrySelected), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.BasedOn>
+                                                        <Style TargetType="{x:Type Control}">
+                                                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                                            <Setter Property="FontSize" Value="12" />
+                                                            <Setter Property="FocusVisualStyle">
+                                                                <Setter.Value>
+                                                                    <Style>
+                                                                        <Setter Property="Control.Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate>
+                                                                                    <Rectangle RadiusX="4" RadiusY="4">
+                                                                                        <Rectangle.Style>
+                                                                                            <Style TargetType="{x:Type Rectangle}">
+                                                                                                <Setter Property="Margin" Value="-2" />
+                                                                                                <Setter Property="Opacity" Value="0.6" />
+                                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                                                                <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}" />
+                                                                                                <Setter Property="StrokeThickness" Value="2" />
+                                                                                                <Setter Property="StrokeDashArray" Value="1 1" />
+                                                                                            </Style>
+                                                                                        </Rectangle.Style>
+                                                                                    </Rectangle>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </Style>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </Style.BasedOn>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9" />
+                                                        </Trigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="0.6" />
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Opacity" Value="0.4" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Style.BasedOn>
+                                        </Style>
+                                    </hc:ContextMenuToggleButton.Style>
+                                </hc:ContextMenuToggleButton>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsScrollable" Value="True" />
+                    <Condition Property="IsTabFillEnabled" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type hc:TabControl}">
+                            <Border
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid
+                                    x:Name="templateRoot"
+                                    ClipToBounds="True"
+                                    KeyboardNavigation.TabNavigation="Local"
+                                    SnapsToDevicePixels="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Border
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="0,-1,0,0"
+                                        HorizontalAlignment="Left"
+                                        Panel.ZIndex="2"
+                                        Background="{DynamicResource RegionBrush}"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        BorderThickness="0,0,1,1">
+                                        <Border.CacheMode>
+                                            <BitmapCache SnapsToDevicePixels="True" />
+                                        </Border.CacheMode>
+                                        <Border.Visibility>
+                                            <TemplateBinding Property="ShowScrollButton">
+                                                <TemplateBinding.Converter>
+                                                    <BooleanToVisibilityConverter />
+                                                </TemplateBinding.Converter>
+                                            </TemplateBinding>
+                                        </Border.Visibility>
+                                        <RepeatButton
+                                            x:Name="PART_ScrollButtonLeft"
+                                            Padding="8"
+                                            hc:IconElement.Geometry="M394.24,512L683.52,248.32C693.76,238.08 693.76,222.72 683.52,212.48 673.28,202.24 657.92,202.24 647.68,212.48L340.48,491.52C335.36,496.64 332.8,504.32 332.8,512 332.8,519.68 335.36,527.36 340.48,532.48L647.68,811.52C657.92,821.76 673.28,821.76 683.52,811.52 693.76,801.28 693.76,785.92 683.52,775.68L394.24,512z"
+                                            Background="{DynamicResource SecondaryRegionBrush}"
+                                            Focusable="False"
+                                            Foreground="{DynamicResource PrimaryTextBrush}">
+                                            <RepeatButton.Style>
+                                                <Style TargetType="{x:Type RepeatButton}">
+                                                    <Setter Property="Background" Value="Transparent" />
+                                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                                    <Setter Property="hc:BorderElement.CornerRadius" Value="0" />
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                                                <Border
+                                                                    Background="{TemplateBinding Background}"
+                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                                    CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                    <ContentControl
+                                                                        Margin="{TemplateBinding Padding}"
+                                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                        <Path
+                                                                            Width="{TemplateBinding hc:IconElement.Width}"
+                                                                            Height="{TemplateBinding hc:IconElement.Height}"
+                                                                            Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                            Fill="{TemplateBinding Foreground}"
+                                                                            SnapsToDevicePixels="True"
+                                                                            Stretch="Uniform" />
+                                                                    </ContentControl>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.BasedOn>
+                                                        <Style TargetType="{x:Type RepeatButton}">
+                                                            <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+                                                            <Setter Property="hc:BorderElement.CornerRadius" Value="4" />
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                                                        <hc:SimplePanel>
+                                                                            <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                            <Border
+                                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                                                CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                                <StackPanel
+                                                                                    Margin="{TemplateBinding Padding}"
+                                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                    Orientation="Horizontal">
+                                                                                    <Path
+                                                                                        x:Name="PathMain"
+                                                                                        Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                        Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                        Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                        Fill="{TemplateBinding Foreground}"
+                                                                                        SnapsToDevicePixels="True"
+                                                                                        Stretch="Uniform" />
+                                                                                    <ContentPresenter
+                                                                                        x:Name="ContentPresenterMain"
+                                                                                        Margin="6,0,0,0"
+                                                                                        VerticalAlignment="Center"
+                                                                                        Content="{TemplateBinding Content}"
+                                                                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                        RecognizesAccessKey="True"
+                                                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                                </StackPanel>
+                                                                            </Border>
+                                                                        </hc:SimplePanel>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="Content" Value="{x:Null}">
+                                                                                <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                                                                            </Trigger>
+                                                                            <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
+                                                                                <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                                                                                <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                                                                            </Trigger>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.BasedOn>
+                                                                <Style TargetType="{x:Type ButtonBase}">
+                                                                    <Setter Property="Height" Value="30" />
+                                                                    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                                                                    <Setter Property="Padding" Value="10,6" />
+                                                                    <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+                                                                    <Setter Property="BorderThickness" Value="0" />
+                                                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                                                    <Style.BasedOn>
+                                                                        <Style TargetType="{x:Type Control}">
+                                                                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                                                            <Setter Property="FontSize" Value="12" />
+                                                                            <Setter Property="FocusVisualStyle">
+                                                                                <Setter.Value>
+                                                                                    <Style>
+                                                                                        <Setter Property="Control.Template">
+                                                                                            <Setter.Value>
+                                                                                                <ControlTemplate>
+                                                                                                    <Rectangle RadiusX="4" RadiusY="4">
+                                                                                                        <Rectangle.Style>
+                                                                                                            <Style TargetType="{x:Type Rectangle}">
+                                                                                                                <Setter Property="Margin" Value="-2" />
+                                                                                                                <Setter Property="Opacity" Value="0.6" />
+                                                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                                                                                <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}" />
+                                                                                                                <Setter Property="StrokeThickness" Value="2" />
+                                                                                                                <Setter Property="StrokeDashArray" Value="1 1" />
+                                                                                                            </Style>
+                                                                                                        </Rectangle.Style>
+                                                                                                    </Rectangle>
+                                                                                                </ControlTemplate>
+                                                                                            </Setter.Value>
+                                                                                        </Setter>
+                                                                                    </Style>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Style>
+                                                                    </Style.BasedOn>
+                                                                </Style>
+                                                            </Style.BasedOn>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Opacity" Value="0.9" />
+                                                                </Trigger>
+                                                                <Trigger Property="IsPressed" Value="True">
+                                                                    <Setter Property="Opacity" Value="0.6" />
+                                                                </Trigger>
+                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                    <Setter Property="Opacity" Value="0.4" />
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Style.BasedOn>
+                                                </Style>
+                                            </RepeatButton.Style>
+                                        </RepeatButton>
+                                    </Border>
+                                    <hc:ScrollViewer
+                                        x:Name="PART_OverflowScrollviewer"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        CanMouseWheel="True"
+                                        HorizontalScrollBarVisibility="Hidden"
+                                        IsDeferredScrollingEnabled="True"
+                                        IsInertiaEnabled="True">
+                                        <Border
+                                            x:Name="PART_HeaderBorder"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{DynamicResource BorderBrush}"
+                                            BorderThickness="0,0,0,1">
+                                            <hc:TabPanel
+                                                x:Name="PART_HeaderPanel"
+                                                MinHeight="{TemplateBinding TabItemHeight}"
+                                                Margin="0,0,-1,-1"
+                                                HorizontalAlignment="Left"
+                                                Panel.ZIndex="1"
+                                                Background="{DynamicResource SecondaryTextBrush}"
+                                                IsItemsHost="True"
+                                                IsTabFillEnabled="{TemplateBinding IsTabFillEnabled}"
+                                                KeyboardNavigation.TabIndex="1"
+                                                TabItemHeight="{TemplateBinding TabItemHeight}"
+                                                TabItemWidth="{TemplateBinding TabItemWidth}" />
+                                        </Border>
+                                    </hc:ScrollViewer>
+                                    <Border
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Margin="0,-1,0,0"
+                                        HorizontalAlignment="Right"
+                                        Background="{DynamicResource RegionBrush}"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        BorderThickness="1,0,0,1">
+                                        <Border.CacheMode>
+                                            <BitmapCache SnapsToDevicePixels="True" />
+                                        </Border.CacheMode>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RepeatButton
+                                                x:Name="PART_ScrollButtonRight"
+                                                Padding="8"
+                                                hc:IconElement.Geometry="M4.1666641,0C5.2083321,0,6.25,0.41666794,7.0833321,1.25L57.083331,46.666664C57.916664,47.499998 58.33333,48.749998 58.333329,49.999998 58.33333,51.249997 57.916664,52.499997 57.083331,53.333331L7.0833321,98.749996C5.4166641,100.41666 2.9166641,100.41666 1.2499962,98.749996 -0.41666794,97.083328 -0.41666794,94.583328 1.2499962,92.916664L48.333331,49.999998 1.2499962,7.0833321C-0.41666794,5.4166641 -0.41666794,2.9166641 1.2499962,1.25 2.0833282,0.41666794 3.1249962,0 4.1666641,0z"
+                                                Background="{DynamicResource SecondaryRegionBrush}"
+                                                BorderBrush="{DynamicResource BorderBrush}"
+                                                Focusable="False"
+                                                Foreground="{DynamicResource PrimaryTextBrush}">
+                                                <RepeatButton.Style>
+                                                    <Style TargetType="{x:Type RepeatButton}">
+                                                        <Setter Property="Background" Value="Transparent" />
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                        <Setter Property="hc:BorderElement.CornerRadius" Value="0" />
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                                                    <Border
+                                                                        Background="{TemplateBinding Background}"
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                                        CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                        <ContentControl
+                                                                            Margin="{TemplateBinding Padding}"
+                                                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                            <Path
+                                                                                Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                Fill="{TemplateBinding Foreground}"
+                                                                                SnapsToDevicePixels="True"
+                                                                                Stretch="Uniform" />
+                                                                        </ContentControl>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.BasedOn>
+                                                            <Style TargetType="{x:Type RepeatButton}">
+                                                                <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+                                                                <Setter Property="hc:BorderElement.CornerRadius" Value="4" />
+                                                                <Setter Property="Template">
+                                                                    <Setter.Value>
+                                                                        <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                                                            <hc:SimplePanel>
+                                                                                <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                                <Border
+                                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                                                    CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                                    <StackPanel
+                                                                                        Margin="{TemplateBinding Padding}"
+                                                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                        Orientation="Horizontal">
+                                                                                        <Path
+                                                                                            x:Name="PathMain"
+                                                                                            Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                            Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                            Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                            Fill="{TemplateBinding Foreground}"
+                                                                                            SnapsToDevicePixels="True"
+                                                                                            Stretch="Uniform" />
+                                                                                        <ContentPresenter
+                                                                                            x:Name="ContentPresenterMain"
+                                                                                            Margin="6,0,0,0"
+                                                                                            VerticalAlignment="Center"
+                                                                                            Content="{TemplateBinding Content}"
+                                                                                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                            RecognizesAccessKey="True"
+                                                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                                    </StackPanel>
+                                                                                </Border>
+                                                                            </hc:SimplePanel>
+                                                                            <ControlTemplate.Triggers>
+                                                                                <Trigger Property="Content" Value="{x:Null}">
+                                                                                    <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                                                                                </Trigger>
+                                                                                <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
+                                                                                    <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                                                                                    <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                                                                                </Trigger>
+                                                                            </ControlTemplate.Triggers>
+                                                                        </ControlTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.BasedOn>
+                                                                    <Style TargetType="{x:Type ButtonBase}">
+                                                                        <Setter Property="Height" Value="30" />
+                                                                        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                                                                        <Setter Property="Padding" Value="10,6" />
+                                                                        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+                                                                        <Setter Property="BorderThickness" Value="0" />
+                                                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                                                                        <Style.BasedOn>
+                                                                            <Style TargetType="{x:Type Control}">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                                                                <Setter Property="FontSize" Value="12" />
+                                                                                <Setter Property="FocusVisualStyle">
+                                                                                    <Setter.Value>
+                                                                                        <Style>
+                                                                                            <Setter Property="Control.Template">
+                                                                                                <Setter.Value>
+                                                                                                    <ControlTemplate>
+                                                                                                        <Rectangle RadiusX="4" RadiusY="4">
+                                                                                                            <Rectangle.Style>
+                                                                                                                <Style TargetType="{x:Type Rectangle}">
+                                                                                                                    <Setter Property="Margin" Value="-2" />
+                                                                                                                    <Setter Property="Opacity" Value="0.6" />
+                                                                                                                    <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                                                                                    <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}" />
+                                                                                                                    <Setter Property="StrokeThickness" Value="2" />
+                                                                                                                    <Setter Property="StrokeDashArray" Value="1 1" />
+                                                                                                                </Style>
+                                                                                                            </Rectangle.Style>
+                                                                                                        </Rectangle>
+                                                                                                    </ControlTemplate>
+                                                                                                </Setter.Value>
+                                                                                            </Setter>
+                                                                                        </Style>
+                                                                                    </Setter.Value>
+                                                                                </Setter>
+                                                                            </Style>
+                                                                        </Style.BasedOn>
+                                                                    </Style>
+                                                                </Style.BasedOn>
+                                                                <Style.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Opacity" Value="0.9" />
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsPressed" Value="True">
+                                                                        <Setter Property="Opacity" Value="0.6" />
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsEnabled" Value="False">
+                                                                        <Setter Property="Opacity" Value="0.4" />
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Style.BasedOn>
+                                                    </Style>
+                                                </RepeatButton.Style>
+                                                <RepeatButton.Visibility>
+                                                    <TemplateBinding Property="ShowScrollButton">
+                                                        <TemplateBinding.Converter>
+                                                            <BooleanToVisibilityConverter />
+                                                        </TemplateBinding.Converter>
+                                                    </TemplateBinding>
+                                                </RepeatButton.Visibility>
+                                            </RepeatButton>
+                                            <Border
+                                                Width="1"
+                                                Background="{DynamicResource BorderBrush}"
+                                                Visibility="{Binding Visibility, ElementName=PART_OverflowButton}" />
+                                            <hc:ContextMenuToggleButton
+                                                x:Name="PART_OverflowButton"
+                                                hc:IconElement.Geometry="M512,801.6896L5.12,282.0096 63.2832,222.4128 512,682.3936 960.7168,222.3104 1018.88,281.9072 512,801.6896z"
+                                                hc:IconSwitchElement.GeometrySelected="M50.000001,0L100,51.262779 94.262627,57.141584 50.000001,11.767713 5.7373757,57.151686 0,51.27288z"
+                                                Menu="{x:Null}"
+                                                Visibility="Collapsed">
+                                                <hc:ContextMenuToggleButton.Style>
+                                                    <Style TargetType="{x:Type ToggleButton}">
+                                                        <Setter Property="Background" Value="Transparent" />
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                    <Border
+                                                                        Background="{TemplateBinding Background}"
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                                        <ContentControl Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                            <Path
+                                                                                x:Name="PathIcon"
+                                                                                Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                Fill="{TemplateBinding Foreground}"
+                                                                                SnapsToDevicePixels="True"
+                                                                                Stretch="Uniform" />
+                                                                        </ContentControl>
+                                                                    </Border>
+                                                                    <ControlTemplate.Triggers>
+                                                                        <Trigger Property="IsChecked" Value="True">
+                                                                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding (hc:IconSwitchElement.GeometrySelected), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                        </Trigger>
+                                                                    </ControlTemplate.Triggers>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.BasedOn>
+                                                            <Style TargetType="{x:Type ToggleButton}">
+                                                                <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+                                                                <Setter Property="Width" Value="30" />
+                                                                <Setter Property="Height" Value="30" />
+                                                                <Setter Property="Padding" Value="8" />
+                                                                <Setter Property="hc:IconElement.Geometry" Value="{x:Null}" />
+                                                                <Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{x:Null}" />
+                                                                <Setter Property="hc:BorderElement.CornerRadius" Value="4" />
+                                                                <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                                                                <Setter Property="BorderThickness" Value="0" />
+                                                                <Setter Property="Template">
+                                                                    <Setter.Value>
+                                                                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                            <hc:SimplePanel>
+                                                                                <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                                <Border
+                                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                                                    CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                                    <ContentControl
+                                                                                        Margin="{TemplateBinding Padding}"
+                                                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                                        <Path
+                                                                                            x:Name="PathIcon"
+                                                                                            Width="{TemplateBinding hc:IconElement.Width}"
+                                                                                            Height="{TemplateBinding hc:IconElement.Height}"
+                                                                                            Data="{TemplateBinding hc:IconElement.Geometry}"
+                                                                                            Fill="{TemplateBinding Foreground}"
+                                                                                            SnapsToDevicePixels="True"
+                                                                                            Stretch="Uniform" />
+                                                                                    </ContentControl>
+                                                                                </Border>
+                                                                                <Border
+                                                                                    x:Name="BorderChecked"
+                                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                                    BorderThickness="4"
+                                                                                    CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                                                                    Visibility="Collapsed" />
+                                                                            </hc:SimplePanel>
+                                                                            <ControlTemplate.Triggers>
+                                                                                <Trigger Property="IsChecked" Value="True">
+                                                                                    <Setter TargetName="PathIcon" Property="Data" Value="{Binding (hc:IconSwitchElement.GeometrySelected), RelativeSource={RelativeSource TemplatedParent}}" />
+                                                                                </Trigger>
+                                                                            </ControlTemplate.Triggers>
+                                                                        </ControlTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.BasedOn>
+                                                                    <Style TargetType="{x:Type Control}">
+                                                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                                                        <Setter Property="FontSize" Value="12" />
+                                                                        <Setter Property="FocusVisualStyle">
+                                                                            <Setter.Value>
+                                                                                <Style>
+                                                                                    <Setter Property="Control.Template">
+                                                                                        <Setter.Value>
+                                                                                            <ControlTemplate>
+                                                                                                <Rectangle RadiusX="4" RadiusY="4">
+                                                                                                    <Rectangle.Style>
+                                                                                                        <Style TargetType="{x:Type Rectangle}">
+                                                                                                            <Setter Property="Margin" Value="-2" />
+                                                                                                            <Setter Property="Opacity" Value="0.6" />
+                                                                                                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                                                                            <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}" />
+                                                                                                            <Setter Property="StrokeThickness" Value="2" />
+                                                                                                            <Setter Property="StrokeDashArray" Value="1 1" />
+                                                                                                        </Style>
+                                                                                                    </Rectangle.Style>
+                                                                                                </Rectangle>
+                                                                                            </ControlTemplate>
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </Style>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </Style>
+                                                                </Style.BasedOn>
+                                                                <Style.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Opacity" Value="0.9" />
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsPressed" Value="True">
+                                                                        <Setter Property="Opacity" Value="0.6" />
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsEnabled" Value="False">
+                                                                        <Setter Property="Opacity" Value="0.4" />
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Style.BasedOn>
+                                                    </Style>
+                                                </hc:ContextMenuToggleButton.Style>
+                                            </hc:ContextMenuToggleButton>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border
+                                        x:Name="contentPanel"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Background="{DynamicResource SecondaryRegionBrush}"
+                                        KeyboardNavigation.DirectionalNavigation="Contained"
+                                        KeyboardNavigation.TabIndex="2"
+                                        KeyboardNavigation.TabNavigation="Local">
+                                        <ContentPresenter
+                                            x:Name="PART_SelectedContentHost"
+                                            Margin="{TemplateBinding Padding}"
+                                            Content="{TemplateBinding SelectedContent}"
+                                            ContentSource="SelectedContent"
+                                            ContentStringFormat="{TemplateBinding SelectedContentStringFormat}"
+                                            ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

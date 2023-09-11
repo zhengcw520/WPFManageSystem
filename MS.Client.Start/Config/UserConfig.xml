@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<setting>
+	<common>
+		<skinName></skinName>
+		<language></language>
+	</common>
+
+	<login>
+		<last></last>
+		<item>
+			<name></name>
+			<pwd></pwd>
+			<sign></sign>
+		</item>
+	</login>
+</setting>
