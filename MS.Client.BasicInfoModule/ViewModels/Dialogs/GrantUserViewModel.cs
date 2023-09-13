@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using MS.Client.Common;
-using MS.Client.IService;
 using MySqlSugar.Shared;
 using Newtonsoft.Json;
+using MS.Client.Service;
 
 namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
@@ -75,26 +75,27 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         {
             //待看  角色ID获取用户
             var result = await roleService.GetUsersByRoleIdAsync(id);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
                 userroleEntities = JsonConvert.DeserializeObject<List<UserRoleDto>>(result.Result.ToString());
             }
             var resultMenu = await service.GetAllAsync();//后期从xml文件加载
-            if (resultMenu != null && resultMenu.Status)
+            if (resultMenu != null && resultMenu.succeeded)
             {
+                var menuLst = JsonConvert.DeserializeObject<List<MenuDto>>(resultMenu.Result.ToString());
                 Users.Clear();
-                foreach (var item in resultMenu.Result)
-                {
-                    if (userroleEntities != null && userroleEntities.Any(x => x.UserId == item.UserId && x.State == 0))
-                    { 
-                        item.IsSelected = true;
-                    }
-                    else
-                    {
-                        item.IsSelected = false;
-                    }
-                    Users.Add(item);
-                }
+                //foreach (var item in menuLst)
+                //{
+                //    if (userroleEntities != null && userroleEntities.Any(x => x.UserId == item.UserId && x.State == 0))
+                //    { 
+                //        item.IsSelected = true;
+                //    }
+                //    else
+                //    {
+                //        item.IsSelected = false;
+                //    }
+                //    Users.Add(item);
+                //}
             }
         }
 
@@ -142,8 +143,8 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                 }
             });
             UserBatchModel batchModel = new UserBatchModel() { AddModel = AddList, DelModel = UpdList, Model = null };
-            var result = await service.BatchUpdateUserRoleInfoAsync(batchModel);
-            if (result != null && result.Status)
+            var result = await service.BatchUserRolesAsync(batchModel);
+            if (result != null && result.succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {

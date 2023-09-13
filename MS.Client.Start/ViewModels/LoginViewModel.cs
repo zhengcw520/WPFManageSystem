@@ -11,7 +11,7 @@ using MS.Client.Common;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Commands;
-using MS.Client.IService;
+using MS.Client.Service;
 using System.Diagnostics;
 using MySqlSugar.Shared;
 using System.Configuration;
@@ -206,21 +206,16 @@ namespace MS.Client.Start.ViewModels
 //    { "Account", Account },
 //    { "Password", Password}
 //}).GetAsync();
-            var user = await "api/user/all".SetClient("github").GetAsStringAsync();
-
-            //var result = "https://api.facebook.com".GetAsync().GetAwaiter().GetResult();
-
-            //// 如果不考虑 Task 异常捕获，可以直接 .Result
-            //var result = "https://api.facebook.com".GetAsync().Result;
+            //var user = await "api/user/all".SetClient("github").GetAsStringAsync();
 
             var mdeol = new UserTBDto() { Account = Account, Password = Password };
             var userResult = await _loginService.Login(mdeol);
-            if (userResult != null && userResult.Status)
+            if (userResult != null && userResult.succeeded)
             {
                 var logininfo = JsonConvert.DeserializeObject<LoginInfoModel>(userResult!.Result!.ToString());
                 GlobalEntity.JwtToken = logininfo!.JwtToken;
                 var menuResult = await _userService.GetMenusByUserIdAsync(GlobalEntity.CurrentUserInfo!.UserId);
-                if (!string.IsNullOrEmpty(menuResult.Result.ToString()) && menuResult.Status)
+                if (!string.IsNullOrEmpty(menuResult.Result.ToString()) && menuResult.succeeded)
                 {
                     List<MenuDto> menuList = new List<MenuDto>();
                     foreach (var item in JsonConvert.DeserializeObject<List<MenuDto>>(menuResult.Result.ToString()))
@@ -234,7 +229,7 @@ namespace MS.Client.Start.ViewModels
             }
             else
             {
-                _eventAggregator.Publish(new SendMessageMsg() { SendMessage = userResult?.Message });
+                _eventAggregator.Publish(new SendMessageMsg() { SendMessage = userResult != null ? userResult.errors : null });
                 this.IsLoading = false;
             }
         }

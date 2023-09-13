@@ -12,9 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using MS.Client.Common;
-using MS.Client.IService;
+using MS.Client.Service;
 using MySqlSugar.Shared;
 using MessageBox = HandyControl.Controls.MessageBox;
+using Newtonsoft.Json;
 
 namespace MS.Client.SysInfoModule.ViewModels
 {
@@ -49,7 +50,7 @@ namespace MS.Client.SysInfoModule.ViewModels
                 if (r == MessageBoxResult.OK)
                 {
                     var result = await service.DeleteAsync(obj.MenuId);
-                    if (result != null && result.Status)
+                    if (result != null && result.succeeded)
                     {
                         Menus.Remove(obj);
                         MessageBox.Show("删除成功");
@@ -135,12 +136,13 @@ namespace MS.Client.SysInfoModule.ViewModels
             {
                 ShowLoading();
                 FindParameter findParameter = new  FindParameter() { PageIndex = PageIndex, PageSize = PageSize };
-                var result = await service.GetPageListAsync(findParameter);
-                PageCount = Convert.ToInt32(result.Total) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(result.Total) / PageSize);
-                if (result != null && result.Status)
+                var res = await service.GetPageListAsync(findParameter);
+                if (res != null && res.succeeded)
                 {
+                    var model = JsonConvert.DeserializeObject<SqlSugarPagedList<MenuDto>>(res.Result.ToString());
+                    PageCount = Convert.ToInt32(model!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(model!.TotalCount) / PageSize);
                     Menus.Clear();
-                    foreach (var item in result.Result)
+                    foreach (var item in model.Items)
                     {
                         Menus.Add(item);
                     }

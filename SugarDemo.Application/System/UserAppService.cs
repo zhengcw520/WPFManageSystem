@@ -15,18 +15,20 @@
         /// </summary>
         /// <param name="FindParameter"></param>
         /// <returns></returns>
-        public async Task<List<UserTBDto>> GetPageListAsync([FromQuery]FindParameter FindParameter) 
+        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }
+
         /// <summary>
         /// 获取所有数据
         /// </summary>
         /// <returns></returns>
-        public async Task<List<UserTBDto>> GetAllAsync() 
+        public async Task<List<UserTBDto>> GetAllAsync()
         {
             return await _service.GetAllAsync();
         }
+
         /// <summary>
         /// 通过Id获取单个数据
         /// </summary>

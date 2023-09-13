@@ -13,8 +13,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using MS.Client.Common;
-using MS.Client.IService;
+using MS.Client.Service;
 using MySqlSugar.Shared;
+using Newtonsoft.Json;
 
 namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
@@ -96,9 +97,9 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         private async void GetDataById(int id)
         {
             var result = await service.GetFirstOfDefaultAsync(id);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
-                Current = result.Result;
+                Current = (RoleDto)result.Result;
             }
         }
 
@@ -110,7 +111,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                 return;
             }
             var result = await service.AddOrUpdateAsync(Current);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {

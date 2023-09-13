@@ -12,8 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MS.Client.BasicInfoModule.Views;
 using MS.Client.Common;
-using MS.Client.IService;
+using MS.Client.Service;
 using MySqlSugar.Shared;
+using Newtonsoft.Json;
 
 namespace MS.Client.BasicInfoModule.ViewModels
 {
@@ -159,12 +160,13 @@ namespace MS.Client.BasicInfoModule.ViewModels
             {
                 ShowLoading();
                 FindParameter findParameter = new FindParameter() { PageIndex = PageIndex, PageSize = PageSize, Search = "" };
-                var result = await roleService.GetPageListAsync(findParameter);
-                PageCount = Convert.ToInt32(result.Total) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(result.Total) / PageSize);
-                if (result != null && result.Status)
+                var res = await roleService.GetPageListAsync(findParameter);
+                if (res != null && res.succeeded)
                 {
+                    var model = JsonConvert.DeserializeObject<SqlSugarPagedList<RoleDto>>(res.Result.ToString());
+                    PageCount = Convert.ToInt32(model!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(model!.TotalCount) / PageSize);
                     Roles.Clear();
-                    foreach (var item in result.Result)
+                    foreach (var item in model.Items)
                     {
                         Roles.Add(item);
                     }

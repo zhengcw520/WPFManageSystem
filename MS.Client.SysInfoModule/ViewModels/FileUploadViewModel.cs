@@ -12,9 +12,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using MS.Client.IService;
+using MS.Client.Service;
 using MySqlSugar.Shared;
 using MS.Client.Common;
+using Newtonsoft.Json;
 
 namespace MS.Client.SysInfoModule.ViewModels
 {
@@ -31,7 +32,6 @@ namespace MS.Client.SysInfoModule.ViewModels
             FindCommand = new DelegateCommand(Find);
             AddCommand = new DelegateCommand(Add);
             EditCommand = new DelegateCommand<MenuDto>(Edit);
-            PageCommond = new DelegateCommand<Pagination>(PageChange);
         }
 
         private void Edit(MenuDto obj)
@@ -61,10 +61,11 @@ namespace MS.Client.SysInfoModule.ViewModels
         {
             FindParameter findParameter = new FindParameter() { PageIndex = PageIndex - 1, PageSize = PageSize };
             var result = await fileUpgradeService.GetPageListAsync(findParameter);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
+                var modellst = JsonConvert.DeserializeObject<List<UpgradeFileDto>>(result.Result.ToString());
                 FileList.Clear();
-                foreach (var item in result.Result)
+                foreach (var item in modellst)
                 {
                     FileList.Add(item);
                 }
@@ -79,33 +80,8 @@ namespace MS.Client.SysInfoModule.ViewModels
             set { fileList = value; RaisePropertyChanged(); }
         }
 
-        private int pageIndex = 1;
-
-        /// <summary>
-        /// 第几页
-        /// </summary>
-        public int PageIndex
-        {
-            get { return pageIndex; }
-            set { pageIndex = value; RaisePropertyChanged(); }
-        }
-
-        private int pageSize = 10;
-
-        /// <summary>
-        /// 每页最大条数
-        /// </summary>
-        public int PageSize
-        {
-            get { return pageSize; }
-            set { pageSize = value; RaisePropertyChanged(); }
-        }
-
-
         public DelegateCommand FindCommand { get; set; }
         public DelegateCommand AddCommand { get; set; }
         public DelegateCommand<MenuDto> EditCommand { get; set; }
-
-        public DelegateCommand<Pagination> PageCommond { get; set; }
     }
 }

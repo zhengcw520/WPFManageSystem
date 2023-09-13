@@ -1,11 +1,11 @@
 ﻿namespace MySqlSugar.IService
 {
-    public interface IBaseService<T>
+    public interface IBaseService<TEntity> where TEntity : class,new()
     {
-        Task<List<T>> GetPageListAsync(FindParameter FindParameter);
-        Task<List<T>> GetAllAsync();
-        Task<T> GetSingleAsync(int id);
-        Task AddOrUpdateAsync(T model);
+        Task<SqlSugarPagedList<TEntity>> GetPageListAsync(FindParameter FindParameter);
+        Task<List<TEntity>> GetAllAsync();
+        Task<TEntity> GetSingleAsync(int id);
+        Task AddOrUpdateAsync(TEntity model);
         Task DeleteAsync(int id);
     }
 }

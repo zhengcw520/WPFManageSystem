@@ -1,23 +1,12 @@
-﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.IService;
-using MS.Client.RestSharp;
-using MySqlSugar.Shared;
-
-namespace MS.Client.Service
+﻿namespace MS.Client.Service
 {
     public class MenuService : BaseService<MenuDto>, IMenuService
     {
-        private readonly HttpRestClient client;
         private readonly string serviceName = "Menu";
+        private readonly string ApiName = "github";
 
-        public MenuService(HttpRestClient client) : base(client, "Menu")
+        public MenuService() : base("Menu","github")
         {
-            this.client = client;
         }
     }
 }

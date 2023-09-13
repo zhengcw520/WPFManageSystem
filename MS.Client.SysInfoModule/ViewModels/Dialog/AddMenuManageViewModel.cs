@@ -10,10 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using MS.Client.Common;
-using MS.Client.IService;
+using MS.Client.Service;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using MySqlSugar.Shared;
+using Newtonsoft.Json;
 
 namespace MS.Client.SysInfoModule.ViewModels.Dialog
 {
@@ -71,9 +72,10 @@ namespace MS.Client.SysInfoModule.ViewModels.Dialog
         private async void GetMenuById(int id)
         {
             var result = await menuService.GetFirstOfDefaultAsync(id);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
-                Current = result.Result;
+                var model= JsonConvert.DeserializeObject<List<MenuDto>>(result.Result.ToString());
+                Current = model!.FirstOrDefault()!;
             }
         }
 
@@ -102,7 +104,7 @@ namespace MS.Client.SysInfoModule.ViewModels.Dialog
                 return; 
             }
             var result = await menuService.AddOrUpdateAsync(Current);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
                 DialogParameters para = new DialogParameters();
                 para.Add("Value", Current);

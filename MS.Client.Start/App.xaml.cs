@@ -6,8 +6,6 @@ using Prism.Services.Dialogs;
 using System;
 using System.Configuration;
 using DryIoc;
-using MS.Client.RestSharp;
-using MS.Client.IService;
 using MS.Client.Service;
 using MS.Client.Start.Views;
 using MS.Client.Start.ViewModels;
@@ -71,10 +69,6 @@ namespace MS.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.GetContainer()
-                .Register<HttpRestClient>(made: Parameters.Of.Type<string>(serviceKey: "webUrl"));
-            containerRegistry.GetContainer().RegisterInstance(PathUrl, serviceKey: "webUrl");
-
             containerRegistry.Register<ILoginService,LoginService>();
             containerRegistry.Register<IUserService, UserService>();
             containerRegistry.Register<IMenuService, MenuService>();

@@ -32,23 +32,18 @@
             await _userService.DeleteAsync(user);
         }
 
-        public async Task<List<UserTBDto>> GetPageListAsync(FindParameter FindParameter)
+        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync(FindParameter find)
         {
-            Expression<Func<UserTB, bool>> exp = Expressionable.Create<UserTB>()
-                .AndIF(!string.IsNullOrEmpty(FindParameter.Search), it => it.UserName!.Equals(FindParameter.Search))
-                .ToExpression();
-            PageModel pageModel = new PageModel()
-            {
-                PageIndex = FindParameter.PageIndex,
-                PageSize = FindParameter.PageSize,
-            };
-            var result = await _userService.GetPageListAsync(exp, pageModel);
-            return result.Adapt<List<UserTBDto>>();
+            var result = await _userService.AsQueryable()
+                .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.UserName!.Equals(find.Search))
+                .OrderBy(u => u.UserId)
+                .ToPagedListAsync<UserTB>(find.PageIndex, find.PageSize);
+            return result.Adapt<SqlSugarPagedList<UserTBDto>>();
         }
 
         public async Task<List<UserTBDto>> GetAllAsync()
         {
-            var result = await _userService.GetListAsync();
+            var result = await _userService.AsQueryable().ToListAsync();
             return result.Adapt<List<UserTBDto>>();
         }
 

@@ -19,7 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MS.Client.Assets\MS.Client.Assets.csproj" />
     <ProjectReference Include="..\MS.Client.Common\MS.Client.Common.csproj" />
-    <ProjectReference Include="..\MS.Client.IService\MS.Client.IService.csproj" />
+    <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
     <ProjectReference Include="..\MySqlSugar.Shared\MySqlSugar.Shared.csproj" />
   </ItemGroup>
 

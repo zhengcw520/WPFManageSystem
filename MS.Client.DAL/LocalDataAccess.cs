@@ -1,4 +1,4 @@
-﻿namespace MS.Client.Service
+﻿namespace MS.Client.DAL
 {
     public class LocalDataAccess : ILocalDataAccess
     {

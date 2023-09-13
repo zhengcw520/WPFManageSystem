@@ -1,4 +1,6 @@
-﻿namespace SugarDemo.Application
+﻿using System.Diagnostics;
+
+namespace SugarDemo.Application
 {
     public class RoleService : IRoleService, IScoped
     {
@@ -37,25 +39,18 @@
             await _roleService.DeleteAsync(x => x.RoleId == id);
         }
 
-        public async Task<List<RoleDto>> GetPageListAsync(FindParameter FindParameter)
+        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync(FindParameter find)
         {
-            Expression<Func<RoleTB, bool>> exp = Expressionable.Create<RoleTB>()
-                .AndIF(!string.IsNullOrEmpty(FindParameter.Search), it => it.RoleName!.Equals(FindParameter.Search))
-                .ToExpression();
-            PageModel pageModel = new PageModel()
-            {
-                PageIndex = FindParameter.PageIndex,
-                PageSize = FindParameter.PageSize,
-            };
-            var result = await _roleService.GetPageListAsync(exp, pageModel);
-            var dtoList = result.Adapt<List<RoleDto>>();
-            return dtoList;
-
+            var result = await _roleService.AsQueryable()
+            .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.RoleName!.Equals(find.Search))
+            .OrderBy(u => u.RoleId)
+            .ToPagedListAsync<RoleTB>(find.PageIndex,find.PageSize);
+            return result.Adapt<SqlSugarPagedList<RoleDto>>();
         }
 
         public async Task<List<RoleDto>> GetAllAsync()
         {
-            var result = await _roleService.GetListAsync();
+            var result = await _roleService.AsQueryable().ToListAsync();
             return result.Adapt<List<RoleDto>>();
         }
 

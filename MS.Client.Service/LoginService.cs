@@ -1,40 +1,24 @@
-﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.IService;
-using MS.Client.RestSharp;
-using MySqlSugar.Shared;
-
-namespace MS.Client.Service
+﻿namespace MS.Client.Service
 {
     public class LoginService : ILoginService
     {
-        private readonly HttpRestClient client;
-        private readonly string serviceName = "Login";
+        private readonly string serviceName = "login";
+        private readonly string ApiName = "github";
 
-        public LoginService(HttpRestClient client)
+        public LoginService()
         {
-            this.client = client;
         }
 
-        public async Task<ApiResponse> Login(UserTBDto user)
+        public async Task<FurApiResponse> Login(UserTBDto user)
         {
-            BaseRequest request = new BaseRequest();
-            request.Method = Method.Get;
-            request.Route = $"api/{serviceName}/Login?Account={user.Account}&Password={user.Password}";
-            return await client.ExecuteAsync(request);
+            var model = await $"api/{serviceName}/login/{user.Account}/{user.Password}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return model;
         }
 
-        public async Task<ApiResponse> Resgiter(UserTBDto user)
+        public async Task<FurApiResponse> Resgiter(UserTBDto user)
         {
-            BaseRequest request = new BaseRequest();
-            request.Method = Method.Post;
-            request.Route = $"api/{serviceName}/Resgiter";
-            request.Parameter = user;
-            return await client.ExecuteAsync(request);
+            //https://localhost:44342/api/login/register
+            return await $"api/{serviceName}/register".SetClient(ApiName).SetBody(user).PostAsAsync<FurApiResponse>();
         }
     }
 }

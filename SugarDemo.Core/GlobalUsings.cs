@@ -17,3 +17,7 @@ global using System.Collections.Generic;
 global using SqlSugar;
 global using System;
 global using System.ComponentModel;
+global using System.Linq.Expressions;
+global using System.Threading.Tasks;
+global using System.Linq;
+global using SugarDemo.Core;

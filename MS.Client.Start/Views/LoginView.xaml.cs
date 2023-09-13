@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using MS.Client.Common;
 using MS.Client.Common.Messages;
-using MS.Client.IService;
+using MS.Client.Service;
 using MS.Client.Start.ViewModels;
 
 namespace MS.Client.Start.Views

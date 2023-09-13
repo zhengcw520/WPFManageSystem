@@ -1,48 +1,30 @@
-﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.IService;
-using MS.Client.RestSharp;
-using MySqlSugar.Shared;
-
-namespace MS.Client.Service
+﻿namespace MS.Client.Service
 {
     public class UserService : BaseService<UserTBDto>, IUserService
     {
-        private readonly HttpRestClient client;
         private readonly string serviceName = "User";
+        private readonly string ApiName = "github";
 
-        public UserService(HttpRestClient client) : base(client, "User")
+        public UserService() : base("User","github")
         {
-            this.client = client;
         }
 
-        public async Task<ApiResponse> GetMenusByUserIdAsync(int id)
+        public async Task<FurApiResponse> GetMenusByUserIdAsync(int id)
         {
-            BaseRequest request = new BaseRequest();
-            request.Method = Method.Get;
-            request.Route = $"api/{serviceName}/GetMenusByUserId?id={id}";
-            return await client.ExecuteAsync(request);
+            //https://localhost:44342/api/user/menus-by-user-id/1
+            return await $"api/{serviceName}/menus-by-user-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
         }
 
-        public async Task<ApiResponse> GetRolesByUserIdAsync(int id)
+        public async Task<FurApiResponse> GetRolesByUserIdAsync(int id)
         {
-            BaseRequest request = new BaseRequest();
-            request.Method = Method.Get;
-            request.Route = $"api/{serviceName}/GetRolesByUserId?id={id}";
-            return await client.ExecuteAsync(request);
+            //https://localhost:44342/api/user/roles-by-user-id/1
+            return await $"api/{serviceName}/roles-by-user-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
         }
 
-        public async Task<ApiResponse> BatchUpdateUserRoleInfoAsync(UserBatchModel model)
+        public async Task<FurApiResponse> BatchUserRolesAsync(UserBatchModel model)
         {
-            BaseRequest request = new BaseRequest();
-            request.Method = Method.Post;
-            request.Route = $"api/{serviceName}/BatchUpdateUserRoleInfo";
-            request.Parameter = model;
-            return await client.ExecuteAsync(request);
+            //https://localhost:44342/api/user/roles-by-user-id/1
+            return await $"api/{serviceName}/roles-by-user-id".SetClient(ApiName).SetBody(model).PostAsAsync<FurApiResponse>();
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MS.Client.Common;
 using MySqlSugar.Shared;
-using MS.Client.IService;
+using MS.Client.Service;
 
 namespace MS.Client.BasicInfoModule.ViewModels
 {
@@ -95,12 +95,13 @@ namespace MS.Client.BasicInfoModule.ViewModels
         private async void GetDataById(int id)
         {
             var result = await service.GetFirstOfDefaultAsync(id);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
-                Current = result.Result;
+                var lst = JsonConvert.DeserializeObject<List<UserTBDto>>(result.Result.ToString());
+                Current = lst!.FirstOrDefault();
             }
             var roleResult = await roleservice.GetAllAsync();
-            if (roleResult != null && roleResult.Status)
+            if (roleResult != null && roleResult.succeeded)
             {
                 //Roles.AddRange(roleResult.Result);
             }
@@ -133,7 +134,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 return;
             }
             var result = await service.AddOrUpdateAsync(Current);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
             {
                 DialogParameters para = new DialogParameters();
                 para.Add("Value", Current);

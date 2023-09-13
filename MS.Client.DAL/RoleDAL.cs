@@ -1,22 +1,22 @@
-﻿namespace MS.Client.Service
+﻿namespace MS.Client.DAL
 {
-    public class RoleService : BaseService<RoleDto>, IRoleService
+    public class RoleDAL : BaseDAL<RoleDto>, IRoleDAL
     {
-        private readonly string serviceName = "Role";
+        private readonly string DALName = "Role";
         private readonly string ApiName = "github";
 
-        public RoleService() : base("Role", "github")
+        public RoleDAL() : base("Role", "github")
         {
         }
 
         public async Task<FurApiResponse> GetMenusByRoleIdAsync(int id)
         {
-            return await $"api/{serviceName}/menus-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return await $"api/{DALName}/menus-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
         }   
         
         public async Task<FurApiResponse> GetUsersByRoleIdAsync(int id)
         {
-            return await $"api/{serviceName}/users-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return await $"api/{DALName}/users-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
         }
 
         /// <summary>
@@ -26,7 +26,7 @@
         /// <returns></returns>
         public async Task<FurApiResponse> BatchUpdateRoleInfoAsync(RoleBatchModel model)
         {
-            return await $"api/{serviceName}/batch-update".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse>();
+            return await $"api/{DALName}/batch-update".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse>();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@
         /// <returns></returns>
         public async Task<FurApiResponse> BatchInsertAsync(RoleBatchModel model)
         {
-            return await $"api/{serviceName}/batch-insert".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse>();
+            return await $"api/{DALName}/batch-insert".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse>();
         }
 
         ///// <summary>
@@ -48,7 +48,7 @@
         //{
         //    BaseRequest request = new BaseRequest();
         //    request.Method = Method.Post;
-        //    request.Route = $"api/{serviceName}/BatchDelete";
+        //    request.Route = $"api/{DALName}/BatchDelete";
         //    request.Parameter = model;
         //    return await client.ExecuteAsync(request);
         //}
@@ -62,7 +62,7 @@
         //{
         //    BaseRequest request = new BaseRequest();
         //    request.Method = Method.Post;
-        //    request.Route = $"api/{serviceName}/BatchUpdate";
+        //    request.Route = $"api/{DALName}/BatchUpdate";
         //    request.Parameter = model;
         //    return await client.ExecuteAsync(request);
         //}

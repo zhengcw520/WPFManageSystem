@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MS.Client.Common;
-using MS.Client.IService;
+using MS.Client.Service;
 using MySqlSugar.Shared;
 using Newtonsoft.Json;
 
@@ -75,15 +75,16 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         private async void GetDataById(int id)
         {
             var rolemenu = await service.GetMenusByRoleIdAsync(id);
-            if (rolemenu != null && rolemenu.Status)
+            if (rolemenu != null && rolemenu.succeeded)
             {
                 roleMenuEntities = JsonConvert.DeserializeObject<List<RoleMenuDto>>(rolemenu.Result.ToString());
             }
             var resultMenu = await menuService.GetAllAsync();//后期从xml文件加载
-            if (resultMenu != null && resultMenu.Status)
+            if (resultMenu != null && resultMenu.succeeded)
             {   
                 Menus.Clear();
-                foreach (var item in resultMenu.Result)
+                var menulst = JsonConvert.DeserializeObject<List<MenuDto>>(resultMenu.Result.ToString());
+                foreach (var item in menulst)
                 {
                     if (roleMenuEntities != null && roleMenuEntities.Any(x => x.MenuId == item.MenuId && x.State == 0))
                     {
@@ -137,7 +138,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
             });
             RoleBatchModel batchModel = new RoleBatchModel() { AddModel = AddList, DelModel = UpdList, Model = null };
             var result = await service.BatchUpdateRoleInfoAsync(batchModel);
-            if (result != null && result.Status)
+            if (result != null && result.succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {
