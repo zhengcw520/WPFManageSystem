@@ -35,8 +35,8 @@ namespace MS.Client.Start
                     options.AddHttpClient("github", c =>
                     {
                         c.BaseAddress = new Uri(PathUrl);
-                        c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
-                        c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+                        //c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                        //c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
                     });
                 });
             });

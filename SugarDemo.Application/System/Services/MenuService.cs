@@ -8,14 +8,14 @@
             _menuService = menuService;
         }
 
-        public async Task<bool> AddOrUpdateAsync(MenuDto model)
+        public async Task AddOrUpdateAsync(MenuDto model)
         {
-            return await _menuService.InsertOrUpdateAsync(model.Adapt<MenuTB>());
+            await _menuService.InsertOrUpdateAsync(model.Adapt<MenuTB>());
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            return await _menuService.DeleteAsync(x => x.MenuId == id);
+            await _menuService.DeleteAsync(x => x.MenuId == id);
         }
 
         public async Task<List<MenuDto>> GetPageListAsync(FindParameter FindParameter)

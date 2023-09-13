@@ -5,7 +5,7 @@
         Task<List<T>> GetPageListAsync(FindParameter FindParameter);
         Task<List<T>> GetAllAsync();
         Task<T> GetSingleAsync(int id);
-        Task<bool> AddOrUpdateAsync(T model);
-        Task<bool> DeleteAsync(int id);
+        Task AddOrUpdateAsync(T model);
+        Task DeleteAsync(int id);
     }
 }

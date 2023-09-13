@@ -24,15 +24,15 @@ namespace MS.Client.Start.ViewModels
     public class LoginViewModel : BindableBase
     {
         #region 属性
-        private string account;
+        private string account = "admin";
 
-        public string Account
+        public string Account 
         {
             get { return account; }
             set { account = value; RaisePropertyChanged(); }
         }
 
-        private string password;
+        private string password="1111";
 
         public string Password
         {
@@ -196,15 +196,28 @@ namespace MS.Client.Start.ViewModels
             }
             this.IsLoading = true;
             this.LoadingMessage = "正在登录";
-            var response = await "User/GetAllAsync".GetAsync();
+            // 字典方式
+
             // 将加号替换为"%2B"
-            string urlEncodedPassword = !string.IsNullOrEmpty(TempPassword)? TempPassword: DESHelper.GetMD5Str(Password).Replace("+", "%2B");
-            var mdeol = new UserTBDto() { Account = Account, Password = urlEncodedPassword };
+            //string urlEncodedPassword = !string.IsNullOrEmpty(TempPassword)? TempPassword: DESHelper.GetMD5Str(Password).Replace("+", "%2B");
+            //string pas = DESHelper.GetMD5Str("1111");
+
+//            var hh = await "api/login/login".SetClient("github").SetQueries(new Dictionary<string, string> {
+//    { "Account", Account },
+//    { "Password", Password}
+//}).GetAsync();
+            var user = await "api/user/all".SetClient("github").GetAsStringAsync();
+
+            //var result = "https://api.facebook.com".GetAsync().GetAwaiter().GetResult();
+
+            //// 如果不考虑 Task 异常捕获，可以直接 .Result
+            //var result = "https://api.facebook.com".GetAsync().Result;
+
+            var mdeol = new UserTBDto() { Account = Account, Password = Password };
             var userResult = await _loginService.Login(mdeol);
             if (userResult != null && userResult.Status)
             {
-                var logininfo = JsonConvert.DeserializeObject<LoginInfoModel>(userResult.Result.ToString());
-                GlobalEntity.CurrentUserInfo = logininfo!.UserTBDto;
+                var logininfo = JsonConvert.DeserializeObject<LoginInfoModel>(userResult!.Result!.ToString());
                 GlobalEntity.JwtToken = logininfo!.JwtToken;
                 var menuResult = await _userService.GetMenusByUserIdAsync(GlobalEntity.CurrentUserInfo!.UserId);
                 if (!string.IsNullOrEmpty(menuResult.Result.ToString()) && menuResult.Status)

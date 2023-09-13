@@ -45,9 +45,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> AddOrUpdateAsync(RoleDto model)
+        public async Task AddOrUpdateAsync(RoleDto model)
         {
-            return await _service.AddOrUpdateAsync(model);
+            await _service.AddOrUpdateAsync(model);
         }
 
         /// <summary>
@@ -55,9 +55,9 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            return await _service.DeleteAsync(id);
+            await _service.DeleteAsync(id);
         }
 
         /// <summary>
@@ -85,9 +85,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> BatchUpdateAsync(RoleBatchModel model)
+        public async Task BatchUpdateAsync(RoleBatchModel model)
         {
-            return await _service.BatchUpdateAsync(model);
+            await _service.BatchUpdateAsync(model);
         }
 
         /// <summary>
@@ -95,9 +95,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> BatchInsertAsync(RoleBatchModel model) 
+        public async Task BatchInsertAsync(RoleBatchModel model) 
         {
-            return await _service.BatchInsertAsync(model);
+            await _service.BatchInsertAsync(model);
         } 
     }
 }

@@ -4,7 +4,7 @@
     {
         Task<List<MenuDto>> GetMenusByRoleIdAsync(int roleId);
         Task<List<UserTBDto>> GetUsersByRoleIdAsync(int roleId);
-        Task<bool> BatchUpdateAsync(RoleBatchModel model);
-        Task<bool> BatchInsertAsync(RoleBatchModel model);
+        Task BatchUpdateAsync(RoleBatchModel model);
+        Task BatchInsertAsync(RoleBatchModel model);
     }
 }

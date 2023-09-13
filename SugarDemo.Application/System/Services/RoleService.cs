@@ -22,9 +22,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> AddOrUpdateAsync(RoleDto model)
+        public async Task AddOrUpdateAsync(RoleDto model)
         {
-            return await _roleService.InsertOrUpdateAsync(model.Adapt<RoleTB>());
+            await _roleService.InsertOrUpdateAsync(model.Adapt<RoleTB>());
         }
 
         /// <summary>
@@ -32,9 +32,9 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            return await _roleService.DeleteAsync(x => x.RoleId == id);
+            await _roleService.DeleteAsync(x => x.RoleId == id);
         }
 
         public async Task<List<RoleDto>> GetPageListAsync(FindParameter FindParameter)
@@ -91,10 +91,10 @@
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task<bool> BatchInsertAsync(RoleBatchModel param)
+        public async Task BatchInsertAsync(RoleBatchModel param)
         {
             // 获取所有权限
-            return await _roleMenuService.InsertRangeAsync(param.AddModel?.Adapt<List<RoleMenuTB>>());
+            await _roleMenuService.InsertRangeAsync(param.AddModel?.Adapt<List<RoleMenuTB>>());
         }
 
         /// <summary>
@@ -102,34 +102,32 @@
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task<bool> BatchUpdateAsync(RoleBatchModel param)
+        public async Task BatchUpdateAsync(RoleBatchModel param)
         {
             // 获取所有权限
-            return await _roleMenuService.UpdateRangeAsync(param.DelModel?.Adapt<List<RoleMenuTB>>());
+            await _roleMenuService.UpdateRangeAsync(param.DelModel?.Adapt<List<RoleMenuTB>>());
         }
         /// <summary>
         /// 批量更新角色菜单
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task<bool> BatchUpdateRoleTBAsync(RoleBatchModel param)
+        public async Task BatchUpdateRoleTBAsync(RoleBatchModel param)
         {
             // 获取所有权限
-            Boolean IsFlag = false;
             if (param.AddModel?.Count > 0)
             {
-                IsFlag = await _roleMenuService.InsertRangeAsync(param.AddModel?.Adapt<List<RoleMenuTB>>());
+                await _roleMenuService.InsertRangeAsync(param.AddModel?.Adapt<List<RoleMenuTB>>());
             }
             if (param.DelModel?.Count > 0)
             {
                 //这里不是真正的删除更新状态(0 未删除,1标识删除)
-                IsFlag = await _roleMenuService.UpdateRangeAsync(param.DelModel?.Adapt<List<RoleMenuTB>>());
+                await _roleMenuService.UpdateRangeAsync(param.DelModel?.Adapt<List<RoleMenuTB>>());
             }
             if (param.Model != null)
             {
-                IsFlag = await _roleService.UpdateAsync(param.Model?.Adapt<RoleTB>());
+                await _roleService.UpdateAsync(param.Model?.Adapt<RoleTB>());
             }
-            return IsFlag;
         }
     }
 }

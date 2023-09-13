@@ -2,7 +2,7 @@
 {
     public interface ILoginService
     {
-        Task<bool> LoginAsync(string Account, string Password);
-        Task<bool> RegisterAsync(UserTBDto UserTBDto);
+        Task<LoginInfoModel> LoginAsync(string Account, string Password);
+        Task RegisterAsync(UserTBDto UserTBDto);
     }
 }

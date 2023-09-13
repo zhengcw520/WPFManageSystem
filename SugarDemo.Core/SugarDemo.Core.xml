@@ -4,6 +4,91 @@
         <name>SugarDemo.Core</name>
     </assembly>
     <members>
+        <member name="T:SugarDemo.Core.CacheConst">
+            <summary>
+            缓存相关常量
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyUser">
+            <summary>
+            用户缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyUserMenu">
+            <summary>
+            用户菜单缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyUserButton">
+            <summary>
+            用户权限缓存（按钮集合）
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyUserOrg">
+            <summary>
+            用户机构缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyRoleMaxDataScope">
+            <summary>
+            角色最大数据范围缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyUserOnline">
+            <summary>
+            在线用户缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyVerCode">
+            <summary>
+            验证码缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyTenant">
+            <summary>
+            租户缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyConst">
+            <summary>
+            常量下拉框
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheConst.KeyAll">
+            <summary>
+            所有缓存关键字集合
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ClaimConst">
+            <summary>
+            Claim相关常量
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ClaimConst.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ClaimConst.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SqlSugarConst">
+            <summary>
+            SqlSugar相关常量
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.SqlSugarConst.ConfigId">
+            <summary>
+            默认数据库标识（默认租户）
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.SqlSugarConst.PrimaryKey">
+            <summary>
+            默认表主键
+            </summary>
+        </member>
         <member name="T:SugarDemo.Core.DbContext">
             <summary>
             数据库上下文对象
@@ -12,6 +97,1098 @@
         <member name="M:SugarDemo.Core.DbContext.AddSqlSugarSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             SqlSugar 数据库实例
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.AccountTypeEnum">
+            <summary>
+            账号类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.AccountTypeEnum.None">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.AccountTypeEnum.User">
+            <summary>
+            普通账号
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.AccountTypeEnum.Admin">
+            <summary>
+            系统管理员
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.AccountTypeEnum.SuperAdmin">
+            <summary>
+            超级管理员
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CacheTypeEnum">
+            <summary>
+            缓存类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheTypeEnum.Memory">
+            <summary>
+            内存缓存
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CacheTypeEnum.Redis">
+            <summary>
+            Redis缓存
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CardTypeEnum">
+            <summary>
+            证件类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CardTypeEnum.IdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CardTypeEnum.PassportCard">
+            <summary>
+            护照
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CardTypeEnum.BirthCard">
+            <summary>
+            出生证
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CardTypeEnum.GatCard">
+            <summary>
+            港澳台通行证
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CardTypeEnum.ForeignCard">
+            <summary>
+            外国人居留证
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CryptogramEnum">
+            <summary>
+            密码加密枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CryptogramEnum.MD5">
+            <summary>
+            MD5
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CryptogramEnum.SM2">
+            <summary>
+            SM2（国密）
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CryptogramEnum.SM4">
+            <summary>
+            SM4（国密）
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CultureLevelEnum">
+            <summary>
+            文化程度枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level1">
+            <summary>
+            小学
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level2">
+            <summary>
+            初中
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level3">
+            <summary>
+            高中
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level4">
+            <summary>
+            中专
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level5">
+            <summary>
+            大专
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level6">
+            <summary>
+            本科
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level7">
+            <summary>
+            硕士研究生
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CultureLevelEnum.Level8">
+            <summary>
+            博士研究生
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.DataOpTypeEnum">
+            <summary>
+            数据操作类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Other">
+            <summary>
+            其它
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Add">
+            <summary>
+            增加
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Edit">
+            <summary>
+            编辑
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Update">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Query">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Detail">
+            <summary>
+            详情
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Tree">
+            <summary>
+            树
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Import">
+            <summary>
+            导入
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Export">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Grant">
+            <summary>
+            授权
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Force">
+            <summary>
+            强退
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataOpTypeEnum.Clean">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.DataScopeEnum">
+            <summary>
+            角色数据范围枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataScopeEnum.All">
+            <summary>
+            全部数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataScopeEnum.DeptChild">
+            <summary>
+            本部门及以下数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataScopeEnum.Dept">
+            <summary>
+            本部门数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataScopeEnum.Self">
+            <summary>
+            仅本人数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.DataScopeEnum.Define">
+            <summary>
+            自定义数据
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ErrorCodeEnum">
+            <summary>
+            系统错误码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D0008">
+            <summary>
+            验证码错误
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D0009">
+            <summary>
+            账号不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1000">
+            <summary>
+            密码不正确
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1001">
+            <summary>
+            非法操作！禁止删除自己
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1002">
+            <summary>
+            记录不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1003">
+            <summary>
+            账号已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1004">
+            <summary>
+            旧密码不匹配
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1005">
+            <summary>
+            测试数据禁止更改admin密码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1006">
+            <summary>
+            数据已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1007">
+            <summary>
+            数据不存在或含有关联引用，禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1008">
+            <summary>
+            禁止为管理员分配角色
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1009">
+            <summary>
+            重复数据或记录含有不存在数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1010">
+            <summary>
+            禁止为超级管理员角色分配权限
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1011">
+            <summary>
+            非法操作，未登录
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1012">
+            <summary>
+            Id不能为空
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1013">
+            <summary>
+            所属机构不在自己的数据范围内
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1014">
+            <summary>
+            禁止删除超级管理员
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1015">
+            <summary>
+            禁止修改超级管理员状态
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1016">
+            <summary>
+            没有权限
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1017">
+            <summary>
+            账号已冻结
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1018">
+            <summary>
+            禁止删除管理员
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1019">
+            <summary>
+            禁止删除系统管理员角色
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1020">
+            <summary>
+            禁止修改系统管理员角色
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1021">
+            <summary>
+            禁止为系统管理员角色分配权限
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1022">
+            <summary>
+            禁止为超级管理员分配角色
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1023">
+            <summary>
+            禁止删除默认租户
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1024">
+            <summary>
+            已将其他地方登录账号下线
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2000">
+            <summary>
+            父机构不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2001">
+            <summary>
+            当前机构Id不能与父机构Id相同
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2002">
+            <summary>
+            已有相同组织机构,编码或名称相同
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2003">
+            <summary>
+            没有权限操作机构
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2004">
+            <summary>
+            该机构下有用户禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2005">
+            <summary>
+            附属机构下有用户禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2006">
+            <summary>
+            只能增加下级机构
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2007">
+            <summary>
+            下级机构下有用户禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D2008">
+            <summary>
+            租户默认机构禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3000">
+            <summary>
+            字典类型不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3001">
+            <summary>
+            字典类型已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3002">
+            <summary>
+            字典类型下面有字典值禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3003">
+            <summary>
+            字典值已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3004">
+            <summary>
+            字典值不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D3005">
+            <summary>
+            字典状态错误
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4000">
+            <summary>
+            菜单已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4001">
+            <summary>
+            路由地址为空
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4002">
+            <summary>
+            打开方式为空
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4003">
+            <summary>
+            权限标识格式为空
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4004">
+            <summary>
+            权限标识格式错误
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4005">
+            <summary>
+            权限不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4006">
+            <summary>
+            父级菜单不能为当前节点，请重新选择父级菜单
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D4007">
+            <summary>
+            不能移动根节点
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D5000">
+            <summary>
+            已存在同名或同编码应用
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D5001">
+            <summary>
+            默认激活系统只能有一个
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D5002">
+            <summary>
+            该应用下有菜单禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D5003">
+            <summary>
+            已存在同名或同编码应用
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D6000">
+            <summary>
+            已存在同名或同编码职位
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D6001">
+            <summary>
+            该职位下有用户禁止删除
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D7000">
+            <summary>
+            通知公告状态错误
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D7001">
+            <summary>
+            通知公告删除失败
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D7002">
+            <summary>
+            通知公告编辑失败
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D7003">
+            <summary>
+            通知公告操作失败，非发布者不能进行操作
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D8000">
+            <summary>
+            文件不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D8001">
+            <summary>
+            不允许的文件类型
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D8002">
+            <summary>
+            文件超过允许大小
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D8003">
+            <summary>
+            文件后缀错误
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D8004">
+            <summary>
+            文件已存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D9000">
+            <summary>
+            已存在同名或同编码参数配置
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D9001">
+            <summary>
+            禁止删除系统参数
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1100">
+            <summary>
+            已存在同名任务调度
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1101">
+            <summary>
+            任务调度不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1200">
+            <summary>
+            演示环境禁止修改数据
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1300">
+            <summary>
+            已存在同名的租户
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1301">
+            <summary>
+            已存在同名的租户管理员
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1400">
+            <summary>
+            该表代码模板已经生成过
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1501">
+            <summary>
+            该类型不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1502">
+            <summary>
+            该字段不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1503">
+            <summary>
+            该类型不是枚举类型
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1504">
+            <summary>
+            该实体不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1505">
+            <summary>
+            父菜单不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1600">
+            <summary>
+            父资源不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1601">
+            <summary>
+            当前资源Id不能与父资源Id相同
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1602">
+            <summary>
+            已有相同编码或名称
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1701">
+            <summary>
+            脚本代码不能为空
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1702">
+            <summary>
+            脚本代码中的作业类，需要定义 [JobDetail] 特性
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1703">
+            <summary>
+            作业编号需要与脚本代码中的作业类 [JobDetail('jobId')] 一致
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1704">
+            <summary>
+            禁止修改作业编号
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1705">
+            <summary>
+            执行作业失败
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1800">
+            <summary>
+            已存在同名打印模板
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.D1900">
+            <summary>
+            已存在同名功能或同名程序及插件
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.xg1000">
+            <summary>
+            已存在同名或同编码项目
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.xg1001">
+            <summary>
+            已存在相同证件号码人员
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.xg1002">
+            <summary>
+            检测数据不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.db1000">
+            <summary>
+            请添加数据列
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.db1001">
+            <summary>
+            数据表不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.db1002">
+            <summary>
+            数据表不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.R2000">
+            <summary>
+            父节点不存在
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.R2001">
+            <summary>
+            当前节点Id不能与父节点Id相同
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.R2002">
+            <summary>
+            已有相同编码或名称
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.Z1001">
+            <summary>
+            默认租户状态禁止修改
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.Z1002">
+            <summary>
+            禁止创建此类型的数据库
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.ErrorCodeEnum.Z1003">
+            <summary>
+            租户已禁用
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.GenderEnum">
+            <summary>
+            性别枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.GenderEnum.Male">
+            <summary>
+            男
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.GenderEnum.Female">
+            <summary>
+            女
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.JobCreateTypeEnum">
+            <summary>
+            作业创建类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobCreateTypeEnum.BuiltIn">
+            <summary>
+            内置
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobCreateTypeEnum.Script">
+            <summary>
+            脚本
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobCreateTypeEnum.Http">
+            <summary>
+            HTTP请求
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.JobStatusEnum">
+            <summary>
+            岗位状态枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobStatusEnum.On">
+            <summary>
+            在职
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobStatusEnum.Off">
+            <summary>
+            离职
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobStatusEnum.Leave">
+            <summary>
+            请假
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.JobStatusEnum.Other">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.LoginModeEnum">
+            <summary>
+            登录模式枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.LoginModeEnum.PC">
+            <summary>
+            PC模式
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.LoginModeEnum.APP">
+            <summary>
+            APP
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.LoginTypeEnum">
+            <summary>
+            登录类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.LoginTypeEnum.Login">
+            <summary>
+            PC登录
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.LoginTypeEnum.Logout">
+            <summary>
+            PC退出
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.LoginTypeEnum.Register">
+            <summary>
+            PC注册
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.MenuTypeEnum">
+            <summary>
+            系统菜单类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MenuTypeEnum.Dir">
+            <summary>
+            目录
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MenuTypeEnum.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MenuTypeEnum.Btn">
+            <summary>
+            按钮
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.MessageTypeEnum">
+            <summary>
+            消息类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MessageTypeEnum.Info">
+            <summary>
+            普通信息
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MessageTypeEnum.Success">
+            <summary>
+            成功提示
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MessageTypeEnum.Warning">
+            <summary>
+            警告提示
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.MessageTypeEnum.Error">
+            <summary>
+            错误提示
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.NoticeStatusEnum">
+            <summary>
+            通知公告状态枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeStatusEnum.DRAFT">
+            <summary>
+            草稿
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeStatusEnum.PUBLIC">
+            <summary>
+            发布
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeStatusEnum.CANCEL">
+            <summary>
+            撤回
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeStatusEnum.DELETED">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.NoticeTypeEnum">
+            <summary>
+            通知公告状类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeTypeEnum.NOTICE">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeTypeEnum.ANNOUNCEMENT">
+            <summary>
+            公告
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.NoticeUserStatusEnum">
+            <summary>
+            通知公告用户状态枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeUserStatusEnum.UNREAD">
+            <summary>
+            未读
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.NoticeUserStatusEnum.READ">
+            <summary>
+            已读
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.PlatformTypeEnum">
+            <summary>
+            平台类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.微信公众号">
+            <summary>
+            微信公众号
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.微信小程序">
+            <summary>
+            微信小程序
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.支付宝小程序">
+            <summary>
+            支付宝小程序
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.微信APP快捷登陆">
+            <summary>
+            微信APP快捷登陆
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.QQ在APP中快捷登陆">
+            <summary>
+            QQ在APP中快捷登陆
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.PlatformTypeEnum.头条系小程序">
+            <summary>
+            头条系小程序
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.RequestTypeEnum">
+            <summary>
+            HTTP请求类型
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.RequestTypeEnum.Run">
+            <summary>
+            执行内部方法
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.RequestTypeEnum.Get">
+            <summary>
+            GET
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.RequestTypeEnum.Post">
+            <summary>
+            POST
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.RequestTypeEnum.Put">
+            <summary>
+            PUT
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.RequestTypeEnum.Delete">
+            <summary>
+            DELETE
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.StatusEnum">
+            <summary>
+            通用状态枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.StatusEnum.Enable">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.StatusEnum.Disable">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.TenantTypeEnum">
+            <summary>
+            租户类型枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.TenantTypeEnum.Id">
+            <summary>
+            Id隔离
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.TenantTypeEnum.Db">
+            <summary>
+            库隔离
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.WechatReturnCodeEnum">
+            <summary>
+            微信开发返回码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.不合法的凭证类型">
+            <summary>
+            <para>公众号：不合法的凭证类型</para>
+            <para>小程序：暂无生成权限</para>
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.不合法的APPID">
+            <summary>
+            <para>微信：不合法的APPID</para>
+            <para>小程序：生成权限被封禁</para>
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.输入参数有误">
+            <summary>
+            <para>公众号：输入参数有误</para>
+            <para>小程序：参数expire_time填写错误</para>
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.用户拒绝接受消息">
+            <summary>[小程序订阅消息]用户拒绝接受消息，如果用户之前曾经订阅过，则表示用户取消了订阅关系</summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.模板参数不准确">
+            <summary>[小程序订阅消息]模板参数不准确，可能为空或者不满足规则，errmsg会提示具体是哪个字段出错</summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.客服帐号名长度超过限制">
+            <summary>
+            客服帐号名长度超过限制(仅允许10个英文字符，不包括@及@后的公众号的微信号)(invalid kf_acount length)
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.客服帐号名包含非法字符">
+            <summary>
+            客服帐号名包含非法字符(仅允许英文+数字)(illegal character in kf_account)
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.客服帐号个数超过限制">
+            <summary>客服帐号个数超过限制(10个客服账号)(kf_account count exceeded)</summary>
+        </member>
+        <member name="F:SugarDemo.Core.WechatReturnCodeEnum.签名错误">
+            <summary>
+            小程序为“签名错误”。对应公众号： 87009, “errmsg” : “reply is not exists” //该回复不存在
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.YesNoEnum">
+            <summary>
+            是否枚举
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.YesNoEnum.Y">
+            <summary>
+            是
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.YesNoEnum.N">
+            <summary>
+            否
             </summary>
         </member>
         <member name="M:SugarDemo.Core.IRepository`1.CommQuery(System.String)">

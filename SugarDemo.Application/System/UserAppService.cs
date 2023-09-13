@@ -42,9 +42,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> AddOrUpdateAsync(UserTBDto model)
+        public async Task AddOrUpdateAsync(UserTBDto model)
         { 
-            return await _service.AddOrUpdateAsync(model);
+            await _service.AddOrUpdateAsync(model);
         }
 
         /// <summary>
@@ -52,9 +52,9 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-           return await _service.DeleteAsync(id);
+            await _service.DeleteAsync(id);
         }
 
         /// <summary>

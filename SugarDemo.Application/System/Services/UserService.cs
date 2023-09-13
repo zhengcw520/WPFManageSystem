@@ -21,15 +21,15 @@
             return "让 .NET 开发更简单，更通用，更流行。";
         }
 
-        public async Task<bool> AddOrUpdateAsync(UserTBDto model)
+        public async Task AddOrUpdateAsync(UserTBDto model)
         {
-            return await _userService.InsertOrUpdateAsync(model.Adapt<UserTB>());
+            await _userService.InsertOrUpdateAsync(model.Adapt<UserTB>());
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             var user = await _userService!.GetFirstAsync(x => x.UserId.Equals(id));
-            return await _userService.DeleteAsync(user);
+            await _userService.DeleteAsync(user);
         }
 
         public async Task<List<UserTBDto>> GetPageListAsync(FindParameter FindParameter)

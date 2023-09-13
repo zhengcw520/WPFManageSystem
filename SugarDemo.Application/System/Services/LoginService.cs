@@ -9,18 +9,29 @@
         }
 
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
-        public async Task<bool> LoginAsync(string Account, string Password)
+        public async Task<LoginInfoModel> LoginAsync(string Account, string Password)
         {
-            var model = await _loginService.GetFirstAsync(x => x.Account!.Equals(Account) && x.Password!.Equals(Password));
-            if (model == null)
+            var user = await _loginService.GetFirstAsync(x => x.Account!.Equals(Account) && x.Password!.Equals(DESHelper.GetMD5Str(Password)));
+            if (user == null)
             {
                 throw Oops.Oh(ErrorCodes.x1000);
             }
-            return true;
+
+            // 生成Token令牌
+            var accessToken = JWTEncryption.Encrypt(new Dictionary<string, object>
+            {
+                { ClaimConst.UserId, user.UserId },
+                { ClaimConst.Account, user.Account },
+            });
+
+            return new LoginInfoModel
+            {
+                 JwtToken = accessToken,    
+            };
         }
 
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
-        public async Task<bool> RegisterAsync(UserTBDto UserTBDto)
+        public async Task RegisterAsync(UserTBDto UserTBDto)
         {
             //try
             //{
@@ -44,7 +55,6 @@
             //{
             //    return new ApiResponse("注册账号失败：" + ex.Message);
             //}
-            return true;
         }
     }
 }
