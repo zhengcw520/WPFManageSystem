@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="FindParameter"></param>
         /// <returns></returns>
-        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
+        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync(FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }

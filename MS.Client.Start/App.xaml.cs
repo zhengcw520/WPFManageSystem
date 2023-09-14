@@ -14,6 +14,8 @@ using MS.Client.BasicInfoModule.Views;
 using MS.Client.SysInfoModule.Views.Dialog;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using MS.Client.DAL;
+using MySqlSugar.Shared;
 
 namespace MS.Client.Start
 {
@@ -33,7 +35,7 @@ namespace MS.Client.Start
                     options.AddHttpClient("github", c =>
                     {
                         c.BaseAddress = new Uri(PathUrl);
-                        //c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                        c.DefaultRequestHeaders.Add("Authorization", $"Bearer {GlobalEntity.JwtToken}");
                         //c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
                     });
                 });

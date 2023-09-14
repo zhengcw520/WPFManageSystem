@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Furion.Pure" Version="4.8.8.42" />
-	<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.5" />
-	<PackageReference Include="System.Data.SQLite" Version="1.0.118" />
   </ItemGroup>
 
   <ItemGroup>

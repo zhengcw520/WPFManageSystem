@@ -15,6 +15,7 @@ namespace SugarDemo.Application
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<LoginInfoModel> LoginAsync(LoginInput input) 
         {
             return await _service.LoginAsync(input);

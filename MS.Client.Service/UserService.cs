@@ -15,7 +15,9 @@ namespace MS.Client.Service
         public async Task<FurApiResponse<List<MenuDto>>> GetMenusByUserIdAsync(int id)
         {
             //https://localhost:44342/api/user/menus-by-user-id/1
-            return await $"api/{serviceName}/menus-by-user-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse<List<MenuDto>>>();
+            return await $"api/{serviceName}/menus-by-user-id/{id}"
+                .SetClient(ApiName)
+                .GetAsAsync<FurApiResponse<List<MenuDto>>>();
         }
 
         public async Task<FurApiResponse<List<RoleDto>>> GetRolesByUserIdAsync(int id)

@@ -11,12 +11,16 @@
 
         public async Task<FurApiResponse<List<RoleMenuDto>>> GetMenusByRoleIdAsync(int id)
         {
-            return await $"api/{serviceName}/menus-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse<List<RoleMenuDto>>>();
+            return await $"api/{serviceName}/menus-by-role-id/{id}"
+                .SetClient(ApiName)
+                .GetAsAsync<FurApiResponse<List<RoleMenuDto>>>();
         }   
         
         public async Task<FurApiResponse<List<UserTBDto>>> GetUsersByRoleIdAsync(int id)
         {
-            return await $"api/{serviceName}/users-by-role-id/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse<List<UserTBDto>>>();
+            return await $"api/{serviceName}/users-by-role-id/{id}"
+                .SetClient(ApiName)
+                .GetAsAsync<FurApiResponse<List<UserTBDto>>>();
         }
 
         /// <summary>
@@ -26,7 +30,10 @@
         /// <returns></returns>
         public async Task<FurApiResponse<bool>> BatchUpdateRoleInfoAsync(RoleBatchModel model)
         {
-            return await $"api/{serviceName}/batch-update".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse<bool>>();
+            return await $"api/{serviceName}/batch-update"
+                .SetBody(model)
+                .SetClient(ApiName)
+                .PostAsAsync<FurApiResponse<bool>>();
         }
 
         /// <summary>
@@ -36,7 +43,10 @@
         /// <returns></returns>
         public async Task<FurApiResponse<bool>> BatchInsertAsync(RoleBatchModel model)
         {
-            return await $"api/{serviceName}/batch-insert".SetBody(model).SetClient(ApiName).PostAsAsync<FurApiResponse<bool>>();
+            return await $"api/{serviceName}/batch-insert"
+                .SetBody(model)
+                .SetClient(ApiName)
+                .PostAsAsync<FurApiResponse<bool>>();
         }
 
         ///// <summary>

@@ -14,7 +14,7 @@ public class Startup : AppStartup
         services.AddConsoleFormatter();
         //SqlSugar
         services.AddSqlSugarSetup();
-        services.AddJwt<JwtHandler>(enableGlobalAuthorize:false);
+        services.AddJwt<JwtHandler>(enableGlobalAuthorize:true);
 
         services.AddCorsAccessor();
 

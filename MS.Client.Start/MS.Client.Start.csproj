@@ -5,7 +5,12 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bitbug_favicon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Furion.Pure" Version="4.8.8.42" />
@@ -17,6 +22,7 @@
     <ProjectReference Include="..\MS.Client.BasicInfoModule\MS.Client.BasicInfoModule.csproj" />
     <ProjectReference Include="..\MS.Client.Common\MS.Client.Common.csproj" />
     <ProjectReference Include="..\MS.Client.Controls\MS.Client.Controls.csproj" />
+    <ProjectReference Include="..\MS.Client.DAL\MS.Client.DAL.csproj" />
     <ProjectReference Include="..\MS.Client.MainModule\MS.Client.MainModule.csproj" />
     <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
     <ProjectReference Include="..\MS.Client.SysInfoModule\MS.Client.SysInfoModule.csproj" />
