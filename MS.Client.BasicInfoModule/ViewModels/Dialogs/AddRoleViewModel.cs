@@ -97,9 +97,9 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         private async void GetDataById(int id)
         {
             var result = await service.GetFirstOfDefaultAsync(id);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
             {
-                Current = (RoleDto)result.Result;
+                Current = result.Data;
             }
         }
 
@@ -111,7 +111,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                 return;
             }
             var result = await service.AddOrUpdateAsync(Current);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {

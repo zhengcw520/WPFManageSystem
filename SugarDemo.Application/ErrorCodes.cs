@@ -15,6 +15,9 @@ namespace SugarDemo.Application
         [ErrorCodeItemMetadata("数据不存在")]
         x1000,
 
+        [ErrorCodeItemMetadata("注册失败")]
+        x1002,
+
         [ErrorCodeItemMetadata("{0} 发现 {1} 个异常", "百小僧", 2)]
         x1001,
 

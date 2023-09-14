@@ -75,27 +75,29 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         {
             //待看  角色ID获取用户
             var result = await roleService.GetUsersByRoleIdAsync(id);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
             {
-                userroleEntities = JsonConvert.DeserializeObject<List<UserRoleDto>>(result.Result.ToString());
+                //foreach (var item in result.Data)
+                //{
+                //    userroleEntities.Add(item);
+                //}
             }
             var resultMenu = await service.GetAllAsync();//后期从xml文件加载
-            if (resultMenu != null && resultMenu.succeeded)
+            if (resultMenu != null && resultMenu.Succeeded)
             {
-                var menuLst = JsonConvert.DeserializeObject<List<MenuDto>>(resultMenu.Result.ToString());
                 Users.Clear();
-                //foreach (var item in menuLst)
-                //{
-                //    if (userroleEntities != null && userroleEntities.Any(x => x.UserId == item.UserId && x.State == 0))
-                //    { 
-                //        item.IsSelected = true;
-                //    }
-                //    else
-                //    {
-                //        item.IsSelected = false;
-                //    }
-                //    Users.Add(item);
-                //}
+                foreach (var item in resultMenu.Data)
+                {
+                    if (userroleEntities != null && userroleEntities.Any(x => x.UserId == item.UserId && x.State == 0))
+                    {
+                        item.IsSelected = true;
+                    }
+                    else
+                    {
+                        item.IsSelected = false;
+                    }
+                    Users.Add(item);
+                }
             }
         }
 
@@ -144,7 +146,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
             });
             UserBatchModel batchModel = new UserBatchModel() { AddModel = AddList, DelModel = UpdList, Model = null };
             var result = await service.BatchUserRolesAsync(batchModel);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {

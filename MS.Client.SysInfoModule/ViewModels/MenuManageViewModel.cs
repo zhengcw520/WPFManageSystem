@@ -50,7 +50,7 @@ namespace MS.Client.SysInfoModule.ViewModels
                 if (r == MessageBoxResult.OK)
                 {
                     var result = await service.DeleteAsync(obj.MenuId);
-                    if (result != null && result.succeeded)
+                    if (result != null && result.Succeeded)
                     {
                         Menus.Remove(obj);
                         MessageBox.Show("删除成功");
@@ -137,9 +137,9 @@ namespace MS.Client.SysInfoModule.ViewModels
                 ShowLoading();
                 FindParameter findParameter = new  FindParameter() { PageIndex = PageIndex, PageSize = PageSize };
                 var res = await service.GetPageListAsync(findParameter);
-                if (res != null && res.succeeded)
+                if (res != null && res.Succeeded)
                 {
-                    var model = JsonConvert.DeserializeObject<SqlSugarPagedList<MenuDto>>(res.Result.ToString());
+                    var model = res.Data;
                     PageCount = Convert.ToInt32(model!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(model!.TotalCount) / PageSize);
                     Menus.Clear();
                     foreach (var item in model.Items)

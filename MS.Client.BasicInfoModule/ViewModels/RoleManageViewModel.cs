@@ -161,9 +161,9 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 ShowLoading();
                 FindParameter findParameter = new FindParameter() { PageIndex = PageIndex, PageSize = PageSize, Search = "" };
                 var res = await roleService.GetPageListAsync(findParameter);
-                if (res != null && res.succeeded)
+                if (res != null && res.Succeeded)
                 {
-                    var model = JsonConvert.DeserializeObject<SqlSugarPagedList<RoleDto>>(res.Result.ToString());
+                    var model = res.Data;
                     PageCount = Convert.ToInt32(model!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(model!.TotalCount) / PageSize);
                     Roles.Clear();
                     foreach (var item in model.Items)

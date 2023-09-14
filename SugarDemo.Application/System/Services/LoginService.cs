@@ -9,9 +9,9 @@
         }
 
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
-        public async Task<LoginInfoModel> LoginAsync(string Account, string Password)
+        public async Task<LoginInfoModel> LoginAsync(LoginInput input)
         {
-            var user = await _loginService.GetFirstAsync(x => x.Account!.Equals(Account) && x.Password!.Equals(DESHelper.GetMD5Str(Password)));
+            var user = await _loginService.GetFirstAsync(x => x.Account!.Equals(input.Account) && x.Password!.Equals(DESHelper.GetMD5Str(input.Password)));
             if (user == null)
             {
                 throw Oops.Oh(ErrorCodes.x1000);
@@ -26,6 +26,7 @@
 
             return new LoginInfoModel
             {
+                 UserId = user.UserId,
                  JwtToken = accessToken,    
             };
         }
@@ -33,28 +34,16 @@
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
         public async Task RegisterAsync(UserTBDto UserTBDto)
         {
-            //try
-            //{
-            //        var model = UserTBDto.Adapt<UserTB>();
-            //        var userModel = await _loginService.GetFirstAsync(x => x.Account!.Equals(model.Account));
-            //        if (userModel != null)
-            //            return new ApiResponse($"当前账号:{model.UserName}已存在,请重新注册！");
-            //        model.UserName = UserTBDto.UserName;
-            //        model.Account = UserTBDto.Account;
-            //        model.Password = utils.GetMD5Str(utils.GetMD5Str(UserTBDto.Password!) + "$" + model.Account);
-            //        model.CreateDate = DateTime.Now;
-            //        model.CreateBy = "ADMIN";
-            //        await work.UserTB.InsertAsync(model);
-            //        if (work.Commit())
-            //            return new ApiResponse(true, model);
-            //        else
-            //            return new ApiResponse("注册失败，请稍后重试");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new ApiResponse("注册账号失败：" + ex.Message);
-            //}
+            var model = UserTBDto.Adapt<UserTB>();
+            var userModel = await _loginService.GetFirstAsync(x => x.Account!.Equals(model.Account));
+            if (userModel != null)
+                throw Oops.Oh(ErrorCodes.x1000);
+            model.UserName = UserTBDto.UserName;
+            model.Account = UserTBDto.Account;
+            model.Password = DESHelper.GetMD5Str(UserTBDto.Password!);
+            model.CreateDate = DateTime.Now;
+            model.CreateBy = "ADMIN";
+            var flag = await _loginService.InsertAsync(model);
         }
     }
 }

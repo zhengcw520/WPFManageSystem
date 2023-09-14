@@ -1,6 +1,6 @@
 ﻿namespace MS.Client.Service
 {
-    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
         private readonly string serviceName;
         private readonly string ApiName;
@@ -23,25 +23,25 @@
             return await "api/{serviceName}/{id}".SetClient(ApiName).PostAsAsync<FurApiResponse>();
         }
 
-        public async Task<FurApiResponse> GetPageListAsync(FindParameter parameter)
+        public async Task<FurApiResponse<SqlSugarPagedList<TEntity>>> GetPageListAsync(FindParameter parameter)
         {
             //https://localhost:44342/api/role/page-list?PageIndex=1&PageSize=10
             string exp = $"api/{serviceName}/page-list/PageIndex={parameter.PageIndex}" +
                 $"&PageSize={parameter.PageSize}" +
                 $"&Search={parameter.Search}";
-            return await exp.SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return await exp.SetClient(ApiName).GetAsAsync<FurApiResponse<SqlSugarPagedList<TEntity>>>();
         }
 
-        public async Task<FurApiResponse> GetAllAsync()
+        public async Task<FurApiResponse<List<TEntity>>> GetAllAsync()
         {
             //https://localhost:44342/api/menu/all
-            return await "api/{serviceName}/all".SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return await "api/{serviceName}/all".SetClient(ApiName).GetAsAsync<FurApiResponse<List<TEntity>>>();
         }
 
-        public async Task<FurApiResponse> GetFirstOfDefaultAsync(int id)
+        public async Task<FurApiResponse<TEntity>> GetFirstOfDefaultAsync(int id)
         {
             //https://localhost:44342/api/menu/single/222
-            return await $"api/{serviceName}/single/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse>();
+            return await $"api/{serviceName}/single/{id}".SetClient(ApiName).GetAsAsync<FurApiResponse<TEntity>>();
         }
     }
 }

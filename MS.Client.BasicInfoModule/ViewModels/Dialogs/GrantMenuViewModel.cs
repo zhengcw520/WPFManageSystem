@@ -75,16 +75,15 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         private async void GetDataById(int id)
         {
             var rolemenu = await service.GetMenusByRoleIdAsync(id);
-            if (rolemenu != null && rolemenu.succeeded)
+            if (rolemenu != null && rolemenu.Succeeded)
             {
-                roleMenuEntities = JsonConvert.DeserializeObject<List<RoleMenuDto>>(rolemenu.Result.ToString());
+                roleMenuEntities.AddRange(rolemenu.Data);
             }
             var resultMenu = await menuService.GetAllAsync();//后期从xml文件加载
-            if (resultMenu != null && resultMenu.succeeded)
+            if (resultMenu != null && resultMenu.Succeeded)
             {   
                 Menus.Clear();
-                var menulst = JsonConvert.DeserializeObject<List<MenuDto>>(resultMenu.Result.ToString());
-                foreach (var item in menulst)
+                foreach (var item in resultMenu.Data)
                 {
                     if (roleMenuEntities != null && roleMenuEntities.Any(x => x.MenuId == item.MenuId && x.State == 0))
                     {
@@ -138,7 +137,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
             });
             RoleBatchModel batchModel = new RoleBatchModel() { AddModel = AddList, DelModel = UpdList, Model = null };
             var result = await service.BatchUpdateRoleInfoAsync(batchModel);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else
             {

@@ -2,8 +2,8 @@
 {
     public interface IUserService :IBaseService<UserTBDto>
     {
-        Task<FurApiResponse> GetMenusByUserIdAsync(int id);
-        Task<FurApiResponse> GetRolesByUserIdAsync(int id);
-        Task<FurApiResponse> BatchUserRolesAsync(UserBatchModel param);
+        Task<FurApiResponse<List<MenuDto>>> GetMenusByUserIdAsync(int id);
+        Task<FurApiResponse<List<RoleDto>>> GetRolesByUserIdAsync(int id);
+        Task<FurApiResponse<bool>> BatchUserRolesAsync(UserBatchModel param);
     }
 }

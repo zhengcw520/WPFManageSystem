@@ -2,8 +2,8 @@
 {
     public interface ILoginService
     {
-        Task<FurApiResponse> Login(UserTBDto user);
+        Task<FurApiResponse<LoginInfoModel>> Login(LoginInput user);
 
-        Task<FurApiResponse> Resgiter(UserTBDto user);
+        Task<FurApiResponse<bool>> Resgiter(UserTBDto user);
     }
 }

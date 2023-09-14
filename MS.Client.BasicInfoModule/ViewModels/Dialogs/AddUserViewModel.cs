@@ -95,13 +95,12 @@ namespace MS.Client.BasicInfoModule.ViewModels
         private async void GetDataById(int id)
         {
             var result = await service.GetFirstOfDefaultAsync(id);
-            if (result != null && result.succeeded)
+            if (result != null)
             {
-                var lst = JsonConvert.DeserializeObject<List<UserTBDto>>(result.Result.ToString());
-                Current = lst!.FirstOrDefault();
+                Current = result.Data;
             }
             var roleResult = await roleservice.GetAllAsync();
-            if (roleResult != null && roleResult.succeeded)
+            if (roleResult != null)
             {
                 //Roles.AddRange(roleResult.Result);
             }
@@ -134,7 +133,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 return;
             }
             var result = await service.AddOrUpdateAsync(Current);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
             {
                 DialogParameters para = new DialogParameters();
                 para.Add("Value", Current);

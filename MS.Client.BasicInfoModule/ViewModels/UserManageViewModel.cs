@@ -131,12 +131,11 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 ShowLoading();
                 FindParameter findParameter = new FindParameter() { PageIndex = PageIndex, PageSize = PageSize, Search = "" };
                 var res = await userService.GetPageListAsync(findParameter);
-                if (res != null && res.succeeded)
+                if (res != null && res.Succeeded)
                 {
-                    var model = JsonConvert.DeserializeObject<SqlSugarPagedList<UserTBDto>>(res.Result.ToString());
-                    PageCount = Convert.ToInt32(model!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(model!.TotalCount) / PageSize);
+                    PageCount = Convert.ToInt32(res.Data!.TotalCount) == 1 ? 1 : (int)Math.Ceiling(Convert.ToDouble(res.Data!.TotalCount) / PageSize);
                     Users.Clear();
-                    foreach (var item in model.Items)
+                    foreach (var item in res.Data.Items)
                     {
                         Users.Add(item);
                     }

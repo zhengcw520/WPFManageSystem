@@ -18,6 +18,7 @@ using System.Configuration;
 using System.Collections.ObjectModel;
 using System.Data.SqlTypes;
 using Furion.RemoteRequest.Extensions;
+using ImTools;
 
 namespace MS.Client.Start.ViewModels
 {
@@ -208,17 +209,16 @@ namespace MS.Client.Start.ViewModels
 //}).GetAsync();
             //var user = await "api/user/all".SetClient("github").GetAsStringAsync();
 
-            var mdeol = new UserTBDto() { Account = Account, Password = Password };
-            var userResult = await _loginService.Login(mdeol);
-            if (userResult != null && userResult.succeeded)
+            var loginInput = new LoginInput() { Account = Account, Password = Password };
+            var userResult = await _loginService.Login(loginInput);
+            if (userResult != null)
             {
-                var logininfo = JsonConvert.DeserializeObject<LoginInfoModel>(userResult!.Result!.ToString());
-                GlobalEntity.JwtToken = logininfo!.JwtToken;
-                var menuResult = await _userService.GetMenusByUserIdAsync(GlobalEntity.CurrentUserInfo!.UserId);
-                if (!string.IsNullOrEmpty(menuResult.Result.ToString()) && menuResult.succeeded)
+                GlobalEntity.JwtToken = userResult!.Data.JwtToken;
+                var menuResult = await _userService.GetMenusByUserIdAsync(userResult!.Data.UserId);
+                if (menuResult!=null)
                 {
                     List<MenuDto> menuList = new List<MenuDto>();
-                    foreach (var item in JsonConvert.DeserializeObject<List<MenuDto>>(menuResult.Result.ToString()))
+                    foreach (var item in menuResult.Data)
                     {
                         menuList.Add(item);
                     }
@@ -229,7 +229,7 @@ namespace MS.Client.Start.ViewModels
             }
             else
             {
-                _eventAggregator.Publish(new SendMessageMsg() { SendMessage = userResult != null ? userResult.errors : null });
+                _eventAggregator.Publish(new SendMessageMsg() { SendMessage = "登录失败,请联系管理员" });
                 this.IsLoading = false;
             }
         }

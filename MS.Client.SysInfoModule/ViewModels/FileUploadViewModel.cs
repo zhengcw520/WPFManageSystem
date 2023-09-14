@@ -61,11 +61,11 @@ namespace MS.Client.SysInfoModule.ViewModels
         {
             FindParameter findParameter = new FindParameter() { PageIndex = PageIndex - 1, PageSize = PageSize };
             var result = await fileUpgradeService.GetPageListAsync(findParameter);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
             {
-                var modellst = JsonConvert.DeserializeObject<List<UpgradeFileDto>>(result.Result.ToString());
+                var model = result.Data;
                 FileList.Clear();
-                foreach (var item in modellst)
+                foreach (var item in model.Items)
                 {
                     FileList.Add(item);
                 }

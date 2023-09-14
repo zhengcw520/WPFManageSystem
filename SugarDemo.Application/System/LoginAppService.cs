@@ -14,13 +14,16 @@ namespace SugarDemo.Application
             _service = service; 
         }
 
-        public async Task<LoginInfoModel> LoginAsync(string Account, string Password) 
+        [HttpPost]
+        public async Task<LoginInfoModel> LoginAsync(LoginInput input) 
         {
-            return await _service.LoginAsync(Account, Password);
+            return await _service.LoginAsync(input);
         }
-        public async Task RegisterAsync(UserTBDto UserTBDto) 
+
+        [HttpPost]
+        public async Task RegisterAsync(UserTBDto user) 
         {
-            await _service.RegisterAsync(UserTBDto);  
+            await _service.RegisterAsync(user);  
         }
     }
 }

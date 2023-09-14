@@ -71,12 +71,11 @@ namespace MS.Client.SysInfoModule.ViewModels.Dialog
 
         private async void GetMenuById(int id)
         {
-            var result = await menuService.GetFirstOfDefaultAsync(id);
-            if (result != null && result.succeeded)
-            {
-                var model= JsonConvert.DeserializeObject<List<MenuDto>>(result.Result.ToString());
-                Current = model!.FirstOrDefault()!;
-            }
+            //var result = await menuService.GetFirstOfDefaultAsync(id);
+            //if (result != null && result.Succeeded)
+            //{
+            //    Current = result.Data;
+            //}
         }
 
         public ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>();
@@ -104,7 +103,7 @@ namespace MS.Client.SysInfoModule.ViewModels.Dialog
                 return; 
             }
             var result = await menuService.AddOrUpdateAsync(Current);
-            if (result != null && result.succeeded)
+            if (result != null && result.Succeeded)
             {
                 DialogParameters para = new DialogParameters();
                 para.Add("Value", Current);
