@@ -11,6 +11,9 @@ public class Startup : AppStartup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        // 配置选项
+        services.AddProjectOptions();
+
         services.AddConsoleFormatter();
         //SqlSugar
         services.AddSqlSugarSetup();
@@ -20,6 +23,9 @@ public class Startup : AppStartup
 
         services.AddControllers()
                 .AddInjectWithUnifyResult();
+
+        // 系统日志
+        services.AddLoggingSetup();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -43,6 +43,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
         }
 
         public DelegateCommand<UserTBDto> EditCommand { get; set; }
+        public DelegateCommand<UserTBDto> GrantRoleCommand { get; set; }
         #endregion
 
         #region 构造函数
@@ -56,6 +57,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
             dialogService = _dialogService;
             EditCommand = new DelegateCommand<UserTBDto>(Edit);
             PageCommond = new DelegateCommand<Pagination>(PageChange);
+            GrantRoleCommand = new DelegateCommand<UserTBDto>(GrantRoleToUser);
         }
 
         #endregion
@@ -123,7 +125,6 @@ namespace MS.Client.BasicInfoModule.ViewModels
 
             }
         }
- 
         protected override async void Find()
         {
             try
@@ -147,6 +148,30 @@ namespace MS.Client.BasicInfoModule.ViewModels
             finally
             {
                 HideLoading();
+            }
+        }
+
+        /// <summary>
+        /// 给用户分配角色
+        /// </summary>
+        /// <param name="obj"></param>
+        private void GrantRoleToUser(UserTBDto obj)
+        {
+            try
+            {
+                DialogParameters para = new DialogParameters();
+                para.Add("Value", obj);
+                dialogService.ShowDialog("GrantRoleView", para, callback =>
+                {
+                    if (callback != null && callback.Result == ButtonResult.OK)
+                    {
+                        MessageBox.Show("保存成功");
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

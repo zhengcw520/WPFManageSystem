@@ -25,4 +25,14 @@
 		<ProjectReference Include="..\SugarDemo.Core\SugarDemo.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Configuration\Logging.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="System\Config\" />
+	</ItemGroup>
+
 </Project>

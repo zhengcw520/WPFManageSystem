@@ -74,6 +74,66 @@
             账号
             </summary>
         </member>
+        <member name="T:SugarDemo.Core.CommonConst">
+            <summary>
+            通用常量
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysDemoEnv">
+            <summary>
+            演示环境开关
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysPassword">
+            <summary>
+            默认密码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysSecondVer">
+            <summary>
+            登录二次验证
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysCaptcha">
+            <summary>
+            开启图形验证码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysWatermark">
+            <summary>
+            开启水印
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysOpLog">
+            <summary>
+            开启操作日志
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysTokenExpire">
+            <summary>
+            Token过期时间
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysRefreshTokenExpire">
+            <summary>
+            RefreshToken过期时间
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysSingleLogin">
+            <summary>
+            单用户登录
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysAdminRole">
+            <summary>
+            系统管理员角色编码
+            </summary>
+        </member>
+        <member name="F:SugarDemo.Core.CommonConst.SysSensitiveDetection">
+            <summary>
+            开启全局脱敏处理（默认不开启）
+            </summary>
+        </member>
         <member name="T:SugarDemo.Core.SqlSugarConst">
             <summary>
             SqlSugar相关常量
@@ -97,6 +157,256 @@
         <member name="M:SugarDemo.Core.DbContext.AddSqlSugarSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             SqlSugar 数据库实例
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.IDeletedFilter">
+            <summary>
+            假删除接口过滤器
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.IDeletedFilter.IsDel">
+            <summary>
+            软删除
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ITenantIdFilter">
+            <summary>
+            租户Id接口过滤器
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.ITenantIdFilter.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.IOrgIdFilter">
+            <summary>
+            机构Id接口过滤器
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.IOrgIdFilter.CreateOrgId">
+            <summary>
+            创建者部门Id
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SysLogDiffTB">
+            <summary>
+            系统差异日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.BeforeData">
+            <summary>
+            操作前记录
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.AfterData">
+            <summary>
+            操作后记录
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.Sql">
+            <summary>
+            Sql
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.Parameters">
+            <summary>
+            参数  手动传入的参数
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.BusinessData">
+            <summary>
+            业务对象
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.DiffType">
+            <summary>
+            差异操作
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogDiffTB.Elapsed">
+            <summary>
+            耗时
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SysLogExTB">
+            <summary>
+            系统异常日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.HttpMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.RequestUrl">
+            <summary>
+            请求地址
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.RequestParam">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.ReturnResult">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.EventId">
+            <summary>
+            事件Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.ThreadId">
+            <summary>
+            线程Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.TraceId">
+            <summary>
+            请求跟踪Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.Exception">
+            <summary>
+            异常信息
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogExTB.Message">
+            <summary>
+            日志消息Json
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SysLogOpTB">
+            <summary>
+            系统操作日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.HttpMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.RequestUrl">
+            <summary>
+            请求地址
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.RequestParam">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.ReturnResult">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.EventId">
+            <summary>
+            事件Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.ThreadId">
+            <summary>
+            线程Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.TraceId">
+            <summary>
+            请求跟踪Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.Exception">
+            <summary>
+            异常信息
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogOpTB.Message">
+            <summary>
+            日志消息Json
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SysLogVisTB">
+            <summary>
+            系统访问日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.ControllerName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.ActionName">
+             <summary>
+             方法名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.DisplayTitle">
+             <summary>
+             显示名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Status">
+            <summary>
+            执行状态
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.RemoteIp">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Location">
+            <summary>
+            登录地点
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Latitude">
+            <summary>
+            维度
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Browser">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Os">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Elapsed">
+            <summary>
+            操作用时
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.LogDateTime">
+            <summary>
+            日志时间
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.LogLevel">
+            <summary>
+            日志级别
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SysLogVisTB.RealName">
+            <summary>
+            真实姓名
             </summary>
         </member>
         <member name="T:SugarDemo.Core.AccountTypeEnum">
@@ -1196,6 +1506,396 @@
             扩展方法，自带方法不能满足的时候可以添加新方法
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Core.DatabaseLoggingWriter">
+            <summary>
+            数据库日志写入器
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Core.DatabaseLoggingWriter.GetIpAddress(System.String)">
+            <summary>
+            解析IP地址
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Core.ElasticSearchLoggingWriter">
+            <summary>
+            ES日志写入器
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ElasticSearchSetup">
+            <summary>
+            ES服务注册
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Core.LoggingSetup.AddLoggingSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            日志注册
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:SugarDemo.Core.APIJSONOptions">
+            <summary>
+            APIJSON配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSONOptions.Roles">
+            <summary>
+            角色集合
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.APIJSON_Role">
+            <summary>
+            APIJSON角色权限
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_Role.RoleName">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_Role.Select">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_Role.Insert">
+            <summary>
+            增加
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_Role.Update">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_Role.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.APIJSON_RoleItem">
+            <summary>
+            APIJSON角色权限内容
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_RoleItem.Table">
+            <summary>
+            表集合
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_RoleItem.Column">
+            <summary>
+            列集合
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.APIJSON_RoleItem.Filter">
+            <summary>
+            过滤器
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CacheOptions">
+            <summary>
+            缓存配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CacheOptions.CacheType">
+            <summary>
+            缓存类型
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CacheOptions.RedisConnectionString">
+            <summary>
+            Redis连接字符串
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CodeGenOptions">
+            <summary>
+            代码生成配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CodeGenOptions.EntityAssemblyNames">
+            <summary>
+            数据库实体程序集名称集合
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CodeGenOptions.BaseEntityNames">
+            <summary>
+            数据库基础实体名称集合
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CodeGenOptions.EntityBaseColumn">
+            <summary>
+            基础实体名
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CodeGenOptions.FrontRootPath">
+            <summary>
+            前端文件根目录
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CodeGenOptions.BackendApplicationNamespace">
+            <summary>
+            后端生成到的项目
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.CryptogramOptions">
+            <summary>
+            密码配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CryptogramOptions.CryptoType">
+            <summary>
+            密码类型
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CryptogramOptions.PublicKey">
+            <summary>
+            公钥
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.CryptogramOptions.PrivateKey">
+            <summary>
+            私钥
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.DbConnectionOptions">
+            <summary>
+            数据库配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbConnectionOptions.ConnectionConfigs">
+            <summary>
+            数据库集合
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.DbConnectionConfig">
+            <summary>
+            数据库连接配置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbConnectionConfig.DbSettings">
+            <summary>
+            数据库设置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbConnectionConfig.TableSettings">
+            <summary>
+            表设置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbConnectionConfig.SeedSettings">
+            <summary>
+            种子设置
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.DbSettings">
+            <summary>
+            数据库设置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbSettings.EnableInitDb">
+            <summary>
+            启用库表初始化
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbSettings.EnableDiffLog">
+            <summary>
+            启用库表差异日志
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.DbSettings.EnableUnderLine">
+            <summary>
+            启用驼峰转下划线
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.TableSettings">
+            <summary>
+            表设置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.TableSettings.EnableInitTable">
+            <summary>
+            启用表初始化
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.TableSettings.EnableIncreTable">
+            <summary>
+            启用表增量更新
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.SeedSettings">
+            <summary>
+            种子设置
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SeedSettings.EnableInitSeed">
+            <summary>
+            启用种子初始化
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.SeedSettings.EnableIncreSeed">
+            <summary>
+            启用种子增量更新
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.EmailOptions">
+            <summary>
+            邮件配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.Host">
+            <summary>
+            主机
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.DefaultFromEmail">
+            <summary>
+            默认发件者邮箱
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.DefaultToEmail">
+            <summary>
+            默认接收人邮箱
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.EnableSsl">
+            <summary>
+            启用SSL
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.UseDefaultCredentials">
+            <summary>
+            是否使用默认凭据
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.UserName">
+            <summary>
+            邮箱账号
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.Password">
+            <summary>
+            邮箱密码
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EmailOptions.DefaultFromName">
+            <summary>
+            默认邮件标题
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.EnumOptions">
+            <summary>
+            枚举配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.EnumOptions.EntityAssemblyNames">
+            <summary>
+            枚举实体程序集名称集合
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.OAuthOptions">
+            <summary>
+            第三方登录授权配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.OAuthOptions.Weixin">
+            <summary>
+            微信配置
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.OSSProviderOptions">
+            <summary>
+            对象存储配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.OSSProviderOptions.IsEnable">
+            <summary>
+            是否启用OSS存储
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.OSSProviderOptions.Bucket">
+            <summary>
+            自定义桶名称 不能直接使用Provider来替代桶名称
+            例：阿里云 1.只能包括小写字母，数字，短横线（-）2.必须以小写字母或者数字开头 3.长度必须在3-63字节之间
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.PayCallBackOptions">
+            <summary>
+            支付回调配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.PayCallBackOptions.WechatPayUrl">
+            <summary>
+            微信支付回调
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.PayCallBackOptions.WechatRefundUrl">
+            <summary>
+            微信退款回调
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.PayCallBackOptions.AlipayUrl">
+            <summary>
+            支付宝支付回调
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.PayCallBackOptions.AlipayRefundUrl">
+            <summary>
+            支付宝退款回调
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.IpRateLimitingOptions">
+            <summary>
+            IP限流配置选项
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.IpRateLimitPoliciesOptions">
+            <summary>
+            IP限流策略配置选项
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ClientRateLimitingOptions">
+            <summary>
+            客户端限流配置选项
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.ClientRateLimitPoliciesOptions">
+            <summary>
+            客户端限流策略配置选项
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Core.UploadOptions">
+            <summary>
+            文件上传配置选项
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.UploadOptions.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.UploadOptions.MaxSize">
+            <summary>
+            大小
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.UploadOptions.ContentType">
+            <summary>
+            上传格式
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Core.UploadOptions.EnableMd5">
+            <summary>
+            启用文件MD5验证
+            </summary>
+            <remarks>防止重复上传</remarks>
         </member>
     </members>
 </doc>

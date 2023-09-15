@@ -14,7 +14,7 @@
         public async Task<FurApiResponse> AddOrUpdateAsync(TEntity entity)
         {
             //https://localhost:44342/api/menu/or-update
-            return await "api/{serviceName}/or-update"
+            return await $"api/{serviceName}/or-update"
                 .SetClient(ApiName)
                 .SetBody(entity)
                 .PostAsAsync<FurApiResponse>();
@@ -23,7 +23,7 @@
         public async Task<FurApiResponse> DeleteAsync(int id)
         {
             //https://localhost:44342/api/menu/1000000
-            return await "api/{serviceName}/{id}"
+            return await $"api/{serviceName}/{id}"
                 .SetClient(ApiName)
                 .PostAsAsync<FurApiResponse>();
         }
@@ -40,7 +40,7 @@
         public async Task<FurApiResponse<List<TEntity>>> GetAllAsync()
         {
             //https://localhost:44342/api/menu/all
-            return await "api/{serviceName}/all"
+            return await $"api/{serviceName}/all"
                 .SetClient(ApiName)
                 .GetAsAsync<FurApiResponse<List<TEntity>>>();
         }

@@ -1,4 +1,6 @@
 ﻿using HandyControl.Controls;
+using MS.Client.Service;
+using MySqlSugar.Shared;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
@@ -8,33 +10,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using MS.Client.Common;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-using MS.Client.Service;
 
 namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
-    public class GrantUserViewModel : BindableBase, IDialogAware
+    public class GrantRoleViewModel : BindableBase, IDialogAware
     {
-        public string Title { get; set; } = "分配用户";
+        public string Title { get; set; } = "分配角色";
 
         public event Action<IDialogResult> RequestClose;
 
-        private ObservableCollection<UserTBDto> users;
+        private ObservableCollection<RoleDto> roles;
         /// <summary>
         /// 在编辑画面显示的菜单
         /// </summary>
-        public ObservableCollection<UserTBDto> Users
+        public ObservableCollection<RoleDto> Roles
         {
-            get { return users; }
-            set { users = value; RaisePropertyChanged(); }
+            get { return roles; }
+            set { roles = value; RaisePropertyChanged(); }
         }
 
-        private RoleDto current;
+        private UserTBDto current;
 
-        public RoleDto Current
+        public UserTBDto Current
         {
             get { return current; }
             set { current = value; RaisePropertyChanged(); }
@@ -42,9 +39,9 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 
         private readonly IUserService service;
         private readonly IRoleService roleService;
-        public GrantUserViewModel(IUserService _service, IRoleService _roleService)
+        public GrantRoleViewModel(IUserService _service, IRoleService _roleService)
         {
-            Users = new ObservableCollection<UserTBDto>();
+            Roles = new ObservableCollection<RoleDto>();
             service = _service;
             btnOKCommand = new DelegateCommand(Save);
             btnCancelCommand = new DelegateCommand(Cancel);
@@ -65,27 +62,28 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         {
             if (parameters.ContainsKey("Value"))
             {
-                Current = parameters.GetValue<RoleDto>("Value");
-                if (Current != null) GetDataById(Current.RoleId);
+                Current = parameters.GetValue<UserTBDto>("Value");
+                if (Current != null) GetDataById(Current.UserId);
             }
         }
 
-        List<UserTBDto> userTbDto = new List<UserTBDto>();
+        List<RoleDto> roleDto = new List<RoleDto>();
         private async void GetDataById(int id)
         {
-            //待看  角色ID获取用户
-            var result = await roleService.GetUsersByRoleIdAsync(id);
+            //用户ID获取角色
+            var result = await service.GetRolesByUserIdAsync(id);
             if (result != null && result.Succeeded)
             {
-                userTbDto.AddRange(result.Data);
+                roleDto.AddRange(result.Data);
             }
-            var resultMenu = await service.GetAllAsync();//后期从xml文件加载
+            //获取所有角色
+            var resultMenu = await roleService.GetAllAsync();
             if (resultMenu != null && resultMenu.Succeeded)
             {
-                Users.Clear();
+                Roles.Clear();
                 foreach (var item in resultMenu.Data)
                 {
-                    if (userTbDto != null && userTbDto.Any(x => x.UserId == item.UserId))
+                    if (roleDto.Any(x=>x.RoleId == item.RoleId))
                     {
                         item.IsSelected = true;
                     }
@@ -93,51 +91,51 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                     {
                         item.IsSelected = false;
                     }
-                    Users.Add(item);
+                    Roles.Add(item);
                 }
             }
         }
 
         private async void Save()
         {
-            List<UserTBDto> currentListUsers = new List<UserTBDto>();
-            currentListUsers.AddRange(Users);
+            List<RoleDto> currentListRoles = new List<RoleDto>();
+            currentListRoles.AddRange(Roles);
             List<UserRoleDto> AddList = new List<UserRoleDto>();
             List<UserRoleDto> UpdList = new List<UserRoleDto>();
-            currentListUsers.ForEach(x =>
+            currentListRoles.ForEach(x =>
             {
                 //删除数据
-                if ((userTbDto.Exists(y => y.UserId == x.UserId && y.IsDel == 0) && !x.IsSelected))
+                if ((roleDto.Exists(y => y.RoleId == x.RoleId && y.IsDel == 0) && !x.IsSelected))
                 {
                     UpdList.Add(new UserRoleDto()
                     {
-                        RoleId = Current.RoleId,
-                        UserId = x.UserId,
+                        RoleId = Current.UserId,
+                        UserId = x.RoleId,
                         State = 1,
                         CreateBy = "admin",
                         CreateDate = DateTime.Now
                     });
                 }
                 //设置逻辑删除后，删除的数据就无法查询出来了，这种方式不生效
-                //if (userTbDto.Exists(y => y.UserId == x.UserId && y.IsDel == 1) && x.IsSelected)
+                //if (roleDto.Exists(y => y.RoleId == x.RoleId && y.IsDel == 1) && x.IsSelected)
                 //{
                 //    UpdList.Add(new UserRoleDto()
                 //    {
-                //        RoleId = Current.RoleId,
-                //        UserId = x.UserId,
+                //        RoleId = Current.UserId,
+                //        UserId = x.RoleId,
                 //        State = 0,
                 //        CreateBy = "admin",
                 //        CreateDate = DateTime.Now
                 //    });
                 //}
-                if (!userTbDto.Exists(y => y.UserId == x.UserId) && x.IsSelected)
+                if (!roleDto.Exists(y => y.RoleId == x.RoleId) && x.IsSelected)
                 {
                     AddList.Add(new UserRoleDto()
                     {
-                        RoleId = Current.RoleId,
-                        UserId = x.UserId,
+                        RoleId = Current.UserId,
+                        UserId = x.RoleId,
                         State = 0,
-                        CreateBy ="admin",
+                        CreateBy = "admin",
                         CreateDate = DateTime.Now
                     });
                 }

@@ -17,6 +17,5 @@ global using System.ComponentModel;
 global using System.Runtime.CompilerServices;
 global using SugarDemo.Application;
 global using MySqlSugar.IService;
-global using MySqlSugar.Models;
 global using SugarDemo.Core;
 global using System.Linq.Expressions;

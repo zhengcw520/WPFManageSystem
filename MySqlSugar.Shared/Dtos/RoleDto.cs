@@ -45,5 +45,13 @@ namespace MySqlSugar.Shared
             get { return menuList; }
             set { menuList = value; OnPropertyChanged(); }
         }
+
+        private bool isSelected;
+
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set { isSelected = value; OnPropertyChanged(); }
+        }
     }
 }

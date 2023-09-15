@@ -6,11 +6,11 @@ namespace SugarDemo.Application
     {
         private readonly IRepository<RoleTB> _roleService;
         private readonly IRepository<MenuTB> _menuService;
-        private readonly IRepository<RoleTB> _userService;
+        private readonly IRepository<UserTB> _userService;
         private readonly IRepository<RoleMenuTB> _roleMenuService;
         public RoleService(IRepository<RoleTB> roleService,
             IRepository<MenuTB> menuService,
-            IRepository<RoleTB> useService,
+            IRepository<UserTB> useService,
             IRepository<RoleMenuTB> roleMenuService)
         {
             _roleService = roleService;

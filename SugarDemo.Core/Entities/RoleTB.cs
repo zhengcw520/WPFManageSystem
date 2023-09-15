@@ -1,4 +1,4 @@
-﻿namespace MySqlSugar.Models
+﻿namespace SugarDemo.Core
 {
     [SugarTable(tableName: "RoleTB")]
     public class RoleTB : BaseTable

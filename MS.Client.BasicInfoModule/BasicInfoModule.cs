@@ -23,6 +23,7 @@ namespace MS.Client.BasicInfoModule
             containerRegistry.RegisterForNavigation<RoleManageView,RoleManageViewModel>();
             containerRegistry.RegisterForNavigation<GrantMenuView, GrantMenuViewModel>();
             containerRegistry.RegisterForNavigation<GrantUserView, GrantUserViewModel>();
+            containerRegistry.RegisterForNavigation<GrantRoleView, GrantRoleViewModel>();
            
             containerRegistry.RegisterDialog<AddUserView>();
             containerRegistry.RegisterDialog<AddRoleView>();

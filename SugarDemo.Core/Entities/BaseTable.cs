@@ -1,9 +1,9 @@
-﻿namespace MySqlSugar.Models
+﻿namespace SugarDemo.Core
 {
-    public class BaseTable
+    public class BaseTable:IDeletedFilter
     {
         [SugarColumn(ColumnDescription = "是否删除", DefaultValue = "0")]
-        public int IsDel { get; set; }
+        public virtual int IsDel { get; set; } = 0;
 
         [SugarColumn(ColumnDescription = "创建人", Length = 20)]
         public string CreateBy { get; set; }
