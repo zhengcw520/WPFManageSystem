@@ -2,7 +2,8 @@
 {
     /// <summary>
     /// 菜单服务接口
-    /// </summary>
+    /// </summary>，
+    [DisplayName("菜单服务接口")]
     public class MenuAppService : IDynamicApiController
     {
         private readonly IMenuService _service;
@@ -15,6 +16,7 @@
         /// </summary>
         /// <param name="FindParameter"></param>
         /// <returns></returns>
+        [DisplayName("获取分页数据")]
         public async Task<SqlSugarPagedList<MenuDto>> GetPageListAsync(FindParameter FindParameter)
         {
            return await _service.GetPageListAsync(FindParameter);
@@ -24,6 +26,7 @@
         /// 获取所有数据
         /// </summary>
         /// <returns></returns>
+        [DisplayName("获取所有数据")]
         public async Task<List<MenuDto>> GetAllAsync()
         {
             return await _service.GetAllAsync();
@@ -34,6 +37,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [DisplayName("获取单个数据")]
         public async Task<MenuDto> GetSingleAsync(int id)
         {
             return await _service.GetSingleAsync(id);
@@ -44,6 +48,7 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
+        [DisplayName("新增修改数据")]
         public async Task AddOrUpdateAsync(MenuDto model) 
         { 
            await _service.AddOrUpdateAsync(model);
@@ -54,6 +59,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [DisplayName("删除单个菜单数据")]
         public async Task DeleteAsync(int id) 
         { 
             await _service.DeleteAsync(id);

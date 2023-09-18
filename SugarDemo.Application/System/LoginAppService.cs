@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SugarDemo.Application
 {
+    [DisplayName("登录服务")]
     public class LoginAppService : IDynamicApiController
     {
         private readonly ILoginService _service;
@@ -16,12 +17,14 @@ namespace SugarDemo.Application
 
         [HttpPost]
         [AllowAnonymous]
+        [DisplayName("登录系统")]
         public async Task<LoginInfoModel> LoginAsync(LoginInput input) 
         {
             return await _service.LoginAsync(input);
         }
 
         [HttpPost]
+        [DisplayName("注册系统")]
         public async Task RegisterAsync(UserTBDto user) 
         {
             await _service.RegisterAsync(user);  

@@ -15,14 +15,14 @@ namespace SugarDemo.Core;
 /// </summary>
 public class DatabaseLoggingWriter : IDatabaseLoggingWriter
 {
-    private readonly SqlSugarRepository<SysLogVisTB> _sysLogVisRep; // 访问日志
-    private readonly SqlSugarRepository<SysLogOpTB> _sysLogOpRep;   // 操作日志
-    private readonly SqlSugarRepository<SysLogExTB> _sysLogExRep;   // 异常日志
+    private readonly IRepository<SysLogVisTB> _sysLogVisRep; // 访问日志
+    private readonly IRepository<SysLogOpTB> _sysLogOpRep;   // 操作日志
+    private readonly IRepository<SysLogExTB> _sysLogExRep;   // 异常日志
     //private readonly SysConfigService _sysConfigService; // 参数配置服务
 
-    public DatabaseLoggingWriter(SqlSugarRepository<SysLogVisTB> sysLogVisRep,
-        SqlSugarRepository<SysLogOpTB> sysLogOpRep,
-        SqlSugarRepository<SysLogExTB> sysLogExRep//,
+    public DatabaseLoggingWriter(IRepository<SysLogVisTB> sysLogVisRep,
+        IRepository<SysLogOpTB> sysLogOpRep,
+        IRepository<SysLogExTB> sysLogExRep//,
         //SysConfigService sysConfigService
         )
     {
@@ -35,7 +35,7 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
     public async void Write(LogMessage logMsg, bool flush)
     {
         var jsonStr = logMsg.Context.Get("loggingMonitor").ToString();
-        var loggingMonitor = JSON.Deserialize<dynamic>(jsonStr);
+        var loggingMonitor = JsonConvert.DeserializeObject<dynamic>(jsonStr);
 
         // 不记录数据校验日志
         if (loggingMonitor.validation != null) return;
@@ -105,7 +105,7 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
         }
 
         // 记录访问日志-登录登出
-        if (loggingMonitor.actionName == "Login" || loggingMonitor.actionName == "logout")
+        if (loggingMonitor.actionName == "login" || loggingMonitor.actionName == "logout")
         {
             await _sysLogVisRep.InsertAsync(new SysLogVisTB
             {
