@@ -27,6 +27,7 @@
             return new LoginInfoModel
             {
                  UserId = user.UserId,
+                 UserName = user.UserName,
                  JwtToken = accessToken,    
             };
         }

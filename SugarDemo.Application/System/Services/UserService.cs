@@ -16,10 +16,6 @@
             _roleService = roleService;
             _userroleService = userroleService;
         }
-        public string GetDescription()
-        {
-            return "让 .NET 开发更简单，更通用，更流行。";
-        }
 
         public async Task AddOrUpdateAsync(UserTBDto model)
         {
@@ -51,7 +47,8 @@
         {
             var result = await _userService.AsQueryable()
                       .Includes(x => x.RoleList)
-                     .Where(x => x.UserId == id).ToListAsync();
+                      .Where(x => x.UserId == id)
+                      .ToListAsync();
             return result.Adapt<UserTBDto>();
         }
 
@@ -59,7 +56,8 @@
         {
             var result = await _menuService.AsQueryable()
                 .LeftJoin<RoleMenuTB>((m, rm) => m.MenuId == rm.MenuId)
-                .LeftJoin<UserRoleTB>((m, rm, ur) => rm.RoleId == ur.RoleId && ur.RoleId == userid)
+                .LeftJoin<UserRoleTB>((m, rm, ur) => rm.RoleId == ur.RoleId)
+                .Where((m, rm, ur)=> ur.RoleId == userid)
                 .ToListAsync();
             return result.Adapt<List<MenuDto>>();
         }
@@ -73,7 +71,8 @@
         {
             var result = await _roleService.AsQueryable()
                 .LeftJoin<UserRoleTB>((r, ur) => r.RoleId == ur.RoleId)
-                .LeftJoin<UserTB>((r, ur, u) => ur.UserId == u.UserId && u.UserId == userid)
+                .LeftJoin<UserTB>((r, ur, u) => ur.UserId == u.UserId)
+                .Where((r, ur, u)=> u.UserId == userid)
                 .ToListAsync();
             return result.Adapt<List<RoleDto>>();
         }

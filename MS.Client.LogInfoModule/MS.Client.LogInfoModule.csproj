@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MS.Client.Assets\MS.Client.Assets.csproj" />
+    <ProjectReference Include="..\MS.Client.Common\MS.Client.Common.csproj" />
+    <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
+    <ProjectReference Include="..\MySqlSugar.Shared\MySqlSugar.Shared.csproj" />
   </ItemGroup>
 
 </Project>

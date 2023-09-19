@@ -58,7 +58,8 @@ namespace SugarDemo.Application
         {
             var result = await _roleService.AsQueryable()
                 .Includes(x => x.MenuList)
-               .Where(x => x.RoleId == id).ToListAsync();
+                .Where(x => x.RoleId == id)
+                .ToListAsync();
             return result.Adapt<RoleDto>();
         }
 
@@ -66,7 +67,8 @@ namespace SugarDemo.Application
         {
             // 获取所有权限
             var result = await _menuService.AsQueryable()
-                .LeftJoin<RoleMenuTB>((m, rm) => m.MenuId == rm.MenuId && rm.RoleId == roleId)
+                .LeftJoin<RoleMenuTB>((m, rm) => m.MenuId == rm.MenuId)
+                .Where((m,rm) => rm.RoleId == roleId)
                 .ToListAsync();
             var dtoList = result.Adapt<List<MenuDto>>();
             return dtoList;
@@ -75,7 +77,8 @@ namespace SugarDemo.Application
         public async Task<List<UserTBDto>> GetUsersByRoleIdAsync(int roleId)
         {
             var result = await _userService.AsQueryable()
-                .LeftJoin<UserRoleTB>((u, ur) => ur.RoleId == roleId)
+                .LeftJoin<UserRoleTB>((u, ur) => u.UserId == ur.UserId)
+                .Where((u, ur)=>ur.RoleId == roleId)
                 .ToListAsync();
             var dtoList = result.Adapt<List<UserTBDto>>();
             return dtoList;
@@ -107,12 +110,13 @@ namespace SugarDemo.Application
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task BatchUpdateRoleTBAsync(RoleBatchModel param)
+        public async Task BatchUpdateRoleMenuAsync(RoleBatchModel param)
         {
             // 获取所有权限
             if (param.AddModel?.Count > 0)
             {
-                await _roleMenuService.InsertRangeAsync(param.AddModel?.Adapt<List<RoleMenuTB>>());
+                var lst = param.AddModel?.Adapt<List<RoleMenuTB>>();
+                await _roleMenuService.InsertRangeAsync(lst);
             }
             if (param.DelModel?.Count > 0)
             {

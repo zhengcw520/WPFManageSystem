@@ -33,7 +33,7 @@
             //https://localhost:44342/api/role/page-list?PageIndex=1&PageSize=10
             string exp = $"api/{serviceName}/page-list";
             return await exp.SetClient(ApiName)
-                .SetBody(parameter)
+                .SetQueries(parameter)
                 .GetAsAsync<FurApiResponse<SqlSugarPagedList<TEntity>>>();
         }
 

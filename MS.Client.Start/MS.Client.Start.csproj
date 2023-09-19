@@ -23,6 +23,7 @@
     <ProjectReference Include="..\MS.Client.Common\MS.Client.Common.csproj" />
     <ProjectReference Include="..\MS.Client.Controls\MS.Client.Controls.csproj" />
     <ProjectReference Include="..\MS.Client.DAL\MS.Client.DAL.csproj" />
+    <ProjectReference Include="..\MS.Client.LogInfoModule\MS.Client.LogInfoModule.csproj" />
     <ProjectReference Include="..\MS.Client.MainModule\MS.Client.MainModule.csproj" />
     <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
     <ProjectReference Include="..\MS.Client.SysInfoModule\MS.Client.SysInfoModule.csproj" />

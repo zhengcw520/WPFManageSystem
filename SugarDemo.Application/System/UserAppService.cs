@@ -17,7 +17,7 @@
         /// <param name="FindParameter"></param>
         /// <returns></returns>
         [DisplayName("获取用户分页数据")]
-        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync(FindParameter FindParameter)
+        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync([FromQuery]FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }

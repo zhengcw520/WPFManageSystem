@@ -71,11 +71,11 @@ namespace MS.Client.SysInfoModule.ViewModels.Dialog
 
         private async void GetMenuById(int id)
         {
-            //var result = await menuService.GetFirstOfDefaultAsync(id);
-            //if (result != null && result.Succeeded)
-            //{
-            //    Current = result.Data;
-            //}
+            var result = await menuService.GetFirstOfDefaultAsync(id);
+            if (result != null && result.Succeeded)
+            {
+                Current = result.Data;
+            }
         }
 
         public ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>();

@@ -113,7 +113,10 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                     {
                         RoleId = Current.RoleId,
                         MenuId = x.MenuId,
-                        State = 1
+                        State = 1,
+                        CreateBy = GlobalEntity.UserName,  
+                        CreateDate = x.CreateDate,  
+                        
                     });
                 }
                 if(roleMenuEntities.Exists(y => y.MenuId == x.MenuId && y.State == 1) && x.IsSelected)
@@ -122,7 +125,9 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                     {
                         RoleId = Current.RoleId,
                         MenuId = x.MenuId,
-                        State = 0
+                        State = 0,
+                        CreateBy = GlobalEntity.UserName,
+                        CreateDate = x.CreateDate,
                     });
                 }
                 if (!roleMenuEntities.Exists(y => y.MenuId == x.MenuId) && x.IsSelected)
@@ -131,12 +136,14 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
                     {
                         RoleId = Current.RoleId,
                         MenuId = x.MenuId,
-                        State = 0
+                        State = 0,
+                        CreateBy = GlobalEntity.UserName,
+                        CreateDate = x.CreateDate,
                     });
                 }
             });
             RoleBatchModel batchModel = new RoleBatchModel() { AddModel = AddList, DelModel = UpdList, Model = null };
-            var result = await service.BatchUpdateRoleInfoAsync(batchModel);
+            var result = await service.BatchUpdateRoleMenuAsync(batchModel);
             if (result != null && result.Succeeded)
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
             else

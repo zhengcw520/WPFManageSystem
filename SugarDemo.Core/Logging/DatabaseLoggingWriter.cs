@@ -82,7 +82,7 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
                 RealName = realName,
                 HttpMethod = loggingMonitor.httpMethod,
                 RequestUrl = loggingMonitor.requestUrl,
-                RequestParam = (loggingMonitor.parameters == null || loggingMonitor.parameters.Count == 0) ? null : JSON.Serialize(loggingMonitor.parameters[0].value),
+                RequestParam = (loggingMonitor.parameters == null || loggingMonitor.parameters.Count == 0) ? string.Empty : JSON.Serialize(loggingMonitor.parameters[0].value),
                 ReturnResult = loggingMonitor.returnInformation == null ? null : JSON.Serialize(loggingMonitor.returnInformation),
                 EventId = logMsg.EventId.Id,
                 ThreadId = logMsg.ThreadId,
@@ -90,6 +90,7 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
                 Exception = JSON.Serialize(loggingMonitor.exception),
                 Message = logMsg.Message,
                 CreateBy = string.IsNullOrWhiteSpace(userId) ? string.Empty : userId,
+                CreateDate = System.DateTime.Now,   
                 //TenantId = string.IsNullOrWhiteSpace(tenantId) ? 0 : long.Parse(tenantId),
                 LogLevel = logMsg.LogLevel
             });
@@ -124,6 +125,7 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
                 Account = account,
                 RealName = realName,
                 CreateBy = string.IsNullOrWhiteSpace(userId) ? string.Empty : userId,
+                CreateDate = System.DateTime.Now,
                 //TenantId = string.IsNullOrWhiteSpace(tenantId) ? 0 : long.Parse(tenantId),
                 LogLevel = logMsg.LogLevel
             });
@@ -152,12 +154,12 @@ public class DatabaseLoggingWriter : IDatabaseLoggingWriter
             RealName = realName,
             HttpMethod = loggingMonitor.httpMethod,
             RequestUrl = loggingMonitor.requestUrl,
-            RequestParam = (loggingMonitor.parameters == null || loggingMonitor.parameters.Count == 0) ? null : JSON.Serialize(loggingMonitor.parameters[0].value),
+            RequestParam = (loggingMonitor.parameters == null || loggingMonitor.parameters.Count == 0) ? string.Empty : JSON.Serialize(loggingMonitor.parameters[0].value),
             ReturnResult = loggingMonitor.returnInformation == null ? null : JSON.Serialize(loggingMonitor.returnInformation),
             EventId = logMsg.EventId.Id,
             ThreadId = logMsg.ThreadId,
             TraceId = logMsg.TraceId,
-            Exception = loggingMonitor.exception == null ? null : JSON.Serialize(loggingMonitor.exception),
+            Exception = loggingMonitor.exception == null ? string.Empty : JSON.Serialize(loggingMonitor.exception),
             Message = logMsg.Message,
             CreateBy = string.IsNullOrWhiteSpace(userId) ? string.Empty : userId,
             //TenantId = string.IsNullOrWhiteSpace(tenantId) ? 0 : long.Parse(tenantId),

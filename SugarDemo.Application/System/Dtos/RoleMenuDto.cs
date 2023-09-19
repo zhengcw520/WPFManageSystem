@@ -22,6 +22,18 @@
         {
             get; set;
         }
+
+        [SugarColumn(ColumnDescription = "创建人")]
+        public string CreateBy
+        {
+            get; set;
+        }
+
+        [SugarColumn(ColumnDescription = "创建日期")]
+        public string CreateDate
+        {
+            get; set;
+        }
     }
 
     public class RoleBatchModel

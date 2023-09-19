@@ -18,7 +18,7 @@
         /// <param name="FindParameter"></param>
         /// <returns></returns>
         [DisplayName("角色获取分页数据")]
-        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync(FindParameter FindParameter)
+        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }
@@ -105,9 +105,20 @@
         /// <param name="model"></param>
         /// <returns></returns>
         [DisplayName("批量插入角色")]
-        public async Task BatchInsertAsync(RoleBatchModel model) 
+        public async Task BatchInsertAsync(RoleBatchModel model)
         {
             await _service.BatchInsertAsync(model);
+        }
+
+        /// <summary>
+        /// 批量增加/删除角色菜单
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        [DisplayName("批量增加/删除角色菜单")]
+        public async Task BatchUpdateRoleMenuAsync(RoleBatchModel param)
+        {
+            await _service.BatchUpdateRoleMenuAsync(param);
         } 
     }
 }

@@ -6,5 +6,7 @@
         Task<List<UserTBDto>> GetUsersByRoleIdAsync(int roleId);
         Task BatchUpdateAsync(RoleBatchModel model);
         Task BatchInsertAsync(RoleBatchModel model);
+
+        Task BatchUpdateRoleMenuAsync(RoleBatchModel model);
     }
 }

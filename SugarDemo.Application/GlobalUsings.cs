@@ -19,3 +19,4 @@ global using SugarDemo.Application;
 global using MySqlSugar.IService;
 global using SugarDemo.Core;
 global using System.Linq.Expressions;
+global using Microsoft.Extensions.Logging;

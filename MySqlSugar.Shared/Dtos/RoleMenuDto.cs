@@ -31,6 +31,18 @@ namespace MySqlSugar.Shared
         {
             get; set;
         }
+
+        [SugarColumn(ColumnDescription = "创建人")]
+        public string CreateBy
+        {
+            get; set;
+        }
+
+        [SugarColumn(ColumnDescription = "创建时间")]
+        public DateTime CreateDate
+        {
+            get; set;
+        }
     }
 
     public class RoleBatchModel

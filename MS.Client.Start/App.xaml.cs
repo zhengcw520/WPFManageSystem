@@ -75,6 +75,8 @@ namespace MS.Client.Start
             containerRegistry.Register<IUserService, UserService>();
             containerRegistry.Register<IMenuService, MenuService>();
             containerRegistry.Register<IRoleService, RoleService>();
+            containerRegistry.Register<IVisLogService, VisLogService>();
+            containerRegistry.Register<IOpLogService, OpLogService>();
             //containerRegistry.Register<IFileUpgradeService,FileUpgradeService>();
             containerRegistry.Register<ILocalDataAccess,LocalDataAccess>();
         }
@@ -88,6 +90,7 @@ namespace MS.Client.Start
             moduleCatalog.AddModule<MainModule.MainModule>();
             moduleCatalog.AddModule<BasicInfoModule.BasicInfoModule>();
             moduleCatalog.AddModule<SysInfoModule.SysInfoModule>();
+            moduleCatalog.AddModule<LogInfoModule.LogInfoModule>();
         }
     }
 }

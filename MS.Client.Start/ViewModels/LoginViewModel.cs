@@ -199,21 +199,13 @@ namespace MS.Client.Start.ViewModels
             this.LoadingMessage = "正在登录";
             // 字典方式
 
-            // 将加号替换为"%2B"
-            //string urlEncodedPassword = !string.IsNullOrEmpty(TempPassword)? TempPassword: DESHelper.GetMD5Str(Password).Replace("+", "%2B");
-            //string pas = DESHelper.GetMD5Str("1111");
-
-//            var hh = await "api/login/login".SetClient("github").SetQueries(new Dictionary<string, string> {
-//    { "Account", Account },
-//    { "Password", Password}
-//}).GetAsync();
-            //var user = await "api/user/all".SetClient("github").GetAsStringAsync();
-
             var loginInput = new LoginInput() { Account = Account, Password = Password };
             var userResult = await _loginService.Login(loginInput);
             if (userResult != null)
             {
                 GlobalEntity.JwtToken = userResult!.Data.JwtToken;
+                GlobalEntity.UserId = userResult!.Data.UserId;
+                GlobalEntity.UserName = userResult!.Data.UserName;
                 var menuResult = await _userService.GetMenusByUserIdAsync(userResult!.Data.UserId);
                 if (menuResult!=null)
                 {

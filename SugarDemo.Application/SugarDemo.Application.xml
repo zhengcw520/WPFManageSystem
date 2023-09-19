@@ -25,6 +25,136 @@
             角色
             </summary>
         </member>
+        <member name="T:SugarDemo.Application.SysLogOpTBDto">
+            <summary>
+            系统操作日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.HttpMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.RequestUrl">
+            <summary>
+            请求地址
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.RequestParam">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.ReturnResult">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.EventId">
+            <summary>
+            事件Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.ThreadId">
+            <summary>
+            线程Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.TraceId">
+            <summary>
+            请求跟踪Id
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.Exception">
+            <summary>
+            异常信息
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogOpTBDto.Message">
+            <summary>
+            日志消息Json
+            </summary>
+        </member>
+        <member name="T:SugarDemo.Application.SysLogVisTBDto">
+            <summary>
+            系统访问日志表
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.ControllerName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.ActionName">
+             <summary>
+             方法名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.DisplayTitle">
+             <summary>
+             显示名称
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Status">
+            <summary>
+            执行状态
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.RemoteIp">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Location">
+            <summary>
+            登录地点
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Latitude">
+            <summary>
+            维度
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Browser">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Os">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Elapsed">
+            <summary>
+            操作用时
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.LogDateTime">
+            <summary>
+            日志时间
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.LogLevel">
+            <summary>
+            日志级别
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:SugarDemo.Application.SysLogVisTBDto.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
         <member name="T:SugarDemo.Application.UserRoleDto">
             <summary>
             用户角色
@@ -72,6 +202,18 @@
             删除单个菜单数据
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Application.OpLogAppService">
+            <summary>
+            Log服务
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.OpLogAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="find"></param>
             <returns></returns>
         </member>
         <member name="T:SugarDemo.Application.RoleAppService">
@@ -141,6 +283,13 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateRoleMenuAsync(SugarDemo.Application.RoleBatchModel)">
+            <summary>
+            批量增加/删除角色菜单
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
         <member name="M:SugarDemo.Application.RoleService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
             <summary>
             单个实体的新增与修改
@@ -169,7 +318,7 @@
             <param name="param"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleService.BatchUpdateRoleTBAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleService.BatchUpdateRoleMenuAsync(SugarDemo.Application.RoleBatchModel)">
             <summary>
             批量更新角色菜单
             </summary>
@@ -252,6 +401,18 @@
             获取单个用户拥有的角色
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SugarDemo.Application.VisLogAppService">
+            <summary>
+            Log服务
+            </summary>
+        </member>
+        <member name="M:SugarDemo.Application.VisLogAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="find"></param>
             <returns></returns>
         </member>
     </members>

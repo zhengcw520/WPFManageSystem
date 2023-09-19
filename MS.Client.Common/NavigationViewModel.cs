@@ -136,7 +136,7 @@ namespace MS.Client.Common
             set { pageIndex = value; RaisePropertyChanged(); }
         }
 
-        private int pageSize = 7;
+        private int pageSize = 10;
 
         /// <summary>
         /// 每页最大条数
