@@ -4,173 +4,12 @@
         <name>SugarDemo.Application</name>
     </assembly>
     <members>
-        <member name="M:SugarDemo.Application.BaseDto.OnPropertyChanged(System.String)">
-            <summary>
-            实现通知更新
-            </summary>
-            <param name="propertyName"></param>
-        </member>
-        <member name="T:SugarDemo.Application.MenuDto">
-            <summary>
-            菜单
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.RoleDto">
-            <summary>
-            角色
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.RoleMenuDto">
-            <summary>
-            角色
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.SysLogOpTBDto">
-            <summary>
-            系统操作日志表
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.HttpMethod">
-            <summary>
-            请求方式
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.RequestUrl">
-            <summary>
-            请求地址
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.RequestParam">
-            <summary>
-            请求参数
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.ReturnResult">
-            <summary>
-            返回结果
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.EventId">
-            <summary>
-            事件Id
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.ThreadId">
-            <summary>
-            线程Id
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.TraceId">
-            <summary>
-            请求跟踪Id
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.Exception">
-            <summary>
-            异常信息
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogOpTBDto.Message">
-            <summary>
-            日志消息Json
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.SysLogVisTBDto">
-            <summary>
-            系统访问日志表
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.ControllerName">
-            <summary>
-            模块名称
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.ActionName">
-             <summary>
-             方法名称
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.DisplayTitle">
-             <summary>
-             显示名称
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Status">
-            <summary>
-            执行状态
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.RemoteIp">
-            <summary>
-            IP地址
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Location">
-            <summary>
-            登录地点
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Longitude">
-            <summary>
-            经度
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Latitude">
-            <summary>
-            维度
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Browser">
-            <summary>
-            浏览器
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Os">
-            <summary>
-            操作系统
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Elapsed">
-            <summary>
-            操作用时
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.LogDateTime">
-            <summary>
-            日志时间
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.LogLevel">
-            <summary>
-            日志级别
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.Account">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="P:SugarDemo.Application.SysLogVisTBDto.RealName">
-            <summary>
-            真实姓名
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.UserRoleDto">
-            <summary>
-            用户角色
-            </summary>
-        </member>
-        <member name="T:SugarDemo.Application.UserTBDto">
-            <summary>
-            用户
-            </summary>
-        </member>
         <member name="T:SugarDemo.Application.MenuAppService">
             <summary>
             菜单服务接口
             </summary>，
         </member>
-        <member name="M:SugarDemo.Application.MenuAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+        <member name="M:SugarDemo.Application.MenuAppService.GetPageListAsync(SugarDemo.Shared.FindParameter)">
             <summary>
             获取分页数据
             </summary>
@@ -190,7 +29,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.MenuAppService.AddOrUpdateAsync(SugarDemo.Application.MenuDto)">
+        <member name="M:SugarDemo.Application.MenuAppService.AddOrUpdateAsync(SugarDemo.Shared.MenuDto)">
             <summary>
             新增修改数据
             </summary>
@@ -209,7 +48,7 @@
             Log服务
             </summary>
         </member>
-        <member name="M:SugarDemo.Application.OpLogAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+        <member name="M:SugarDemo.Application.OpLogAppService.GetPageListAsync(SugarDemo.Shared.FindParameter)">
             <summary>
             获取分页数据
             </summary>
@@ -221,7 +60,7 @@
             角色服务接口
             </summary>
         </member>
-        <member name="M:SugarDemo.Application.RoleAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+        <member name="M:SugarDemo.Application.RoleAppService.GetPageListAsync(SugarDemo.Shared.FindParameter)">
             <summary>
             获取分页数据
             </summary>
@@ -241,7 +80,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleAppService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
+        <member name="M:SugarDemo.Application.RoleAppService.AddOrUpdateAsync(SugarDemo.Shared.RoleDto)">
             <summary>
             新增或修改数据
             </summary>
@@ -269,28 +108,28 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量更新角色
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleAppService.BatchInsertAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleAppService.BatchInsertAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量插入角色
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateRoleMenuAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleAppService.BatchUpdateRoleMenuAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量增加/删除角色菜单
             </summary>
             <param name="param"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleService.AddOrUpdateAsync(SugarDemo.Application.RoleDto)">
+        <member name="M:SugarDemo.Application.RoleService.AddOrUpdateAsync(SugarDemo.Shared.RoleDto)">
             <summary>
             单个实体的新增与修改
             </summary>
@@ -304,21 +143,21 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleService.BatchInsertAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleService.BatchInsertAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量插入角色菜单
             </summary>
             <param name="param"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleService.BatchUpdateAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleService.BatchUpdateAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量更新角色菜单
             </summary>
             <param name="param"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.RoleService.BatchUpdateRoleMenuAsync(SugarDemo.Application.RoleBatchModel)">
+        <member name="M:SugarDemo.Application.RoleService.BatchUpdateRoleMenuAsync(SugarDemo.Shared.RoleBatchModel)">
             <summary>
             批量更新角色菜单
             </summary>
@@ -332,7 +171,7 @@
             <param name="userid"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.UserService.BatchUpdateUserRoleTBAsync(SugarDemo.Application.UserBatchModel)">
+        <member name="M:SugarDemo.Application.UserService.BatchUpdateUserRoleTBAsync(SugarDemo.Shared.UserBatchModel)">
             <summary>
             批量更新用户角色菜单
             </summary>
@@ -355,7 +194,7 @@
             用户服务接口
             </summary>
         </member>
-        <member name="M:SugarDemo.Application.UserAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+        <member name="M:SugarDemo.Application.UserAppService.GetPageListAsync(SugarDemo.Shared.FindParameter)">
             <summary>
             获取分页数据
             </summary>
@@ -375,7 +214,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SugarDemo.Application.UserAppService.AddOrUpdateAsync(SugarDemo.Application.UserTBDto)">
+        <member name="M:SugarDemo.Application.UserAppService.AddOrUpdateAsync(SugarDemo.Shared.UserDto)">
             <summary>
             新增或更新数据
             </summary>
@@ -408,7 +247,7 @@
             Log服务
             </summary>
         </member>
-        <member name="M:SugarDemo.Application.VisLogAppService.GetPageListAsync(SugarDemo.Application.FindParameter)">
+        <member name="M:SugarDemo.Application.VisLogAppService.GetPageListAsync(SugarDemo.Shared.FindParameter)">
             <summary>
             获取分页数据
             </summary>

@@ -9,7 +9,7 @@
         }
 
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
-        public async Task<LoginInfoModel> LoginAsync(LoginInput input)
+        public async Task<LoginDto> LoginAsync(LoginInput input)
         {
             var user = await _loginService.GetFirstAsync(x => x.Account!.Equals(input.Account) && x.Password!.Equals(DESHelper.GetMD5Str(input.Password)));
             if (user == null)
@@ -24,7 +24,7 @@
                 { ClaimConst.Account, user.Account },
             });
 
-            return new LoginInfoModel
+            return new LoginDto
             {
                  UserId = user.UserId,
                  UserName = user.UserName,
@@ -33,15 +33,15 @@
         }
 
         [IfException(ErrorCodes.x1000, ErrorMessage = "当前登录用户密码不对")]
-        public async Task RegisterAsync(UserTBDto UserTBDto)
+        public async Task RegisterAsync(UserDto UserDto)
         {
-            var model = UserTBDto.Adapt<UserTB>();
+            var model = UserDto.Adapt<UserTB>();
             var userModel = await _loginService.GetFirstAsync(x => x.Account!.Equals(model.Account));
             if (userModel != null)
                 throw Oops.Oh(ErrorCodes.x1000);
-            model.UserName = UserTBDto.UserName;
-            model.Account = UserTBDto.Account;
-            model.Password = DESHelper.GetMD5Str(UserTBDto.Password!);
+            model.UserName = UserDto.UserName;
+            model.Account = UserDto.Account;
+            model.Password = DESHelper.GetMD5Str(UserDto.Password!);
             model.CreateDate = DateTime.Now;
             model.CreateBy = "ADMIN";
             var flag = await _loginService.InsertAsync(model);

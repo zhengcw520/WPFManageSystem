@@ -1,20 +1,4 @@
-﻿using DryIoc;
-using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.Common;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-
-namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
+﻿namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
     public class GrantMenuViewModel : BindableBase, IDialogAware
     {

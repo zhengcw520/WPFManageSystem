@@ -1,17 +1,4 @@
-﻿using HandyControl.Controls;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
+﻿namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
     public class GrantRoleViewModel : BindableBase, IDialogAware
     {
@@ -29,9 +16,9 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
             set { roles = value; RaisePropertyChanged(); }
         }
 
-        private UserTBDto current;
+        private UserDto current;
 
-        public UserTBDto Current
+        public UserDto Current
         {
             get { return current; }
             set { current = value; RaisePropertyChanged(); }
@@ -62,7 +49,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         {
             if (parameters.ContainsKey("Value"))
             {
-                Current = parameters.GetValue<UserTBDto>("Value");
+                Current = parameters.GetValue<UserDto>("Value");
                 if (Current != null) GetDataById(Current.UserId);
             }
         }

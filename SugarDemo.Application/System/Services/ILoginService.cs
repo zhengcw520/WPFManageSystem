@@ -2,7 +2,7 @@
 {
     public interface ILoginService
     {
-        Task<LoginInfoModel> LoginAsync(LoginInput input);
-        Task RegisterAsync(UserTBDto UserTBDto);
+        Task<LoginDto> LoginAsync(LoginInput input);
+        Task RegisterAsync(UserDto UserDto);
     }
 }

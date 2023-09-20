@@ -18,7 +18,7 @@
         /// <param name="FindParameter"></param>
         /// <returns></returns>
         [DisplayName("角色获取分页数据")]
-        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
+        public async Task<SugarPagedList<RoleDto>> GetPageListAsync([FromQuery] FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }
@@ -83,7 +83,7 @@
         /// <param name="id"></param>
         /// <returns></returns>
         [DisplayName("根据角色获取所拥有的用户")]
-        public async Task<List<UserTBDto>> GetUsersByRoleIdAsync(int id)
+        public async Task<List<UserDto>> GetUsersByRoleIdAsync(int id)
         {
             return await _service.GetUsersByRoleIdAsync(id);
         }

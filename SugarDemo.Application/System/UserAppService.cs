@@ -17,7 +17,7 @@
         /// <param name="FindParameter"></param>
         /// <returns></returns>
         [DisplayName("获取用户分页数据")]
-        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync([FromQuery]FindParameter FindParameter)
+        public async Task<SugarPagedList<UserDto>> GetPageListAsync([FromQuery]FindParameter FindParameter)
         {
             return await _service.GetPageListAsync(FindParameter);
         }
@@ -27,7 +27,7 @@
         /// </summary>
         /// <returns></returns>
         [DisplayName("获取用户所有数据")]
-        public async Task<List<UserTBDto>> GetAllAsync()
+        public async Task<List<UserDto>> GetAllAsync()
         {
             return await _service.GetAllAsync();
         }
@@ -38,7 +38,7 @@
         /// <param name="id"></param>
         /// <returns></returns>
         [DisplayName("获取单个用户数据")]
-        public async Task<UserTBDto> GetSingleAsync(int id) 
+        public async Task<UserDto> GetSingleAsync(int id) 
         { 
             return await _service.GetSingleAsync(id); 
         }
@@ -49,7 +49,7 @@
         /// <param name="model"></param>
         /// <returns></returns>
         [DisplayName("新增或更新数据")]
-        public async Task AddOrUpdateAsync(UserTBDto model)
+        public async Task AddOrUpdateAsync(UserDto model)
         { 
             await _service.AddOrUpdateAsync(model);
         }

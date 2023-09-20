@@ -1,13 +1,3 @@
-using Prism.Ioc;
-using Prism.Modularity;
-using Prism.Regions;
-using System;
-using System.Reflection;
-using MS.Client.BasicInfoModule.ViewModels;
-using MS.Client.BasicInfoModule.ViewModels.Dialogs;
-using MS.Client.BasicInfoModule.Views;
-using MS.Client.BasicInfoModule.Views.Dialogs;
-
 namespace MS.Client.BasicInfoModule
 {
     public class BasicInfoModule : IModule

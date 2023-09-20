@@ -1,15 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-namespace MS.Client.MainModule.Models
+﻿namespace MS.Client.MainModule.Models
 {
     public class MainMenuItemModel : BindableBase
     {

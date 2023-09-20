@@ -1,23 +1,4 @@
-﻿using DryIoc;
-using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Ioc;
-using Prism.Mvvm;
-using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using MS.Client.Common;
-using Newtonsoft.Json;
-
-namespace MS.Client.SysInfoModule.ViewModels
+﻿namespace MS.Client.SysInfoModule.ViewModels
 {
     public class FileUploadViewModel : NavigationViewModel
     {

@@ -1,26 +1,4 @@
-﻿using Newtonsoft.Json;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using MS.Client.Common.Messages;
-using MS.Client.Common;
-using Prism.Events;
-using Prism.Mvvm;
-using Prism.Commands;
-using MS.Client.Service;
-using System.Diagnostics;
-using MySqlSugar.Shared;
-using System.Configuration;
-using System.Collections.ObjectModel;
-using System.Data.SqlTypes;
-using Furion.RemoteRequest.Extensions;
-using ImTools;
-
-namespace MS.Client.Start.ViewModels
+﻿namespace MS.Client.Start.ViewModels
 {
     public class LoginViewModel : BindableBase
     {

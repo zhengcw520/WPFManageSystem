@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MySqlSugar.Shared\MySqlSugar.Shared.csproj" />
+    <ProjectReference Include="..\SugarDemo.Shared\SugarDemo.Shared.csproj" />
   </ItemGroup>
 
 </Project>

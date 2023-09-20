@@ -3,7 +3,7 @@
 	<service display="生产库">
 		<updateService></updateService>
 		<serviceBaseUri>https://localhost:44342/</serviceBaseUri>
-	</service>
+	</service>5
 	<service display="测试库">
 		<updateService></updateService>
 		<serviceBaseUri>https://localhost:44342/</serviceBaseUri>

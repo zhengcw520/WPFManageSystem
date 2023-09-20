@@ -17,7 +17,7 @@
         /// <param name="find"></param>
         /// <returns></returns>
         [DisplayName("获取访问日志分页数据")]
-        public async Task<SqlSugarPagedList<SysLogVisTBDto>> GetPageListAsync([FromQuery]FindParameter find)
+        public async Task<SugarPagedList<VisLogDto>> GetPageListAsync([FromQuery]FindParameter find)
         {
             return await _service.GetDetailAsync(find);
         }

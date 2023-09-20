@@ -1,10 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Events;
-using Prism.Mvvm;
-using Prism.Regions;
-using MS.Client.Common.Messages;
-
-namespace MS.Client.Start.ViewModels
+﻿namespace MS.Client.Start.ViewModels
 {
     public class MainWindowViewModel:BindableBase
     {

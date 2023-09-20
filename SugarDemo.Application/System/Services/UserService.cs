@@ -17,7 +17,7 @@
             _userroleService = userroleService;
         }
 
-        public async Task AddOrUpdateAsync(UserTBDto model)
+        public async Task AddOrUpdateAsync(UserDto model)
         {
             await _userService.InsertOrUpdateAsync(model.Adapt<UserTB>());
         }
@@ -28,28 +28,28 @@
             await _userService.DeleteAsync(user);
         }
 
-        public async Task<SqlSugarPagedList<UserTBDto>> GetPageListAsync(FindParameter find)
+        public async Task<SugarPagedList<UserDto>> GetPageListAsync(FindParameter find)
         {
             var result = await _userService.AsQueryable()
                 .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.UserName!.Equals(find.Search))
                 .OrderBy(u => u.UserId)
                 .ToPagedListAsync<UserTB>(find.PageIndex, find.PageSize);
-            return result.Adapt<SqlSugarPagedList<UserTBDto>>();
+            return result.Adapt<SugarPagedList<UserDto>>();
         }
 
-        public async Task<List<UserTBDto>> GetAllAsync()
+        public async Task<List<UserDto>> GetAllAsync()
         {
             var result = await _userService.AsQueryable().ToListAsync();
-            return result.Adapt<List<UserTBDto>>();
+            return result.Adapt<List<UserDto>>();
         }
 
-        public async Task<UserTBDto> GetSingleAsync(int id)
+        public async Task<UserDto> GetSingleAsync(int id)
         {
             var result = await _userService.AsQueryable()
                       .Includes(x => x.RoleList)
                       .Where(x => x.UserId == id)
                       .ToListAsync();
-            return result.Adapt<UserTBDto>();
+            return result.Adapt<UserDto>();
         }
 
         public async Task<List<MenuDto>> GetMenusByUserIdAsync(int userid)

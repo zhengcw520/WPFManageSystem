@@ -8,6 +8,6 @@ namespace SugarDemo.Application
 {
     public interface IVisLogService
     {
-        public Task<SqlSugarPagedList<SysLogVisTBDto>> GetDetailAsync(FindParameter find);
+        public Task<SugarPagedList<VisLogDto>> GetDetailAsync(FindParameter find);
     }
 }

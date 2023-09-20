@@ -27,7 +27,7 @@
     <ProjectReference Include="..\MS.Client.MainModule\MS.Client.MainModule.csproj" />
     <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
     <ProjectReference Include="..\MS.Client.SysInfoModule\MS.Client.SysInfoModule.csproj" />
-    <ProjectReference Include="..\MySqlSugar.Shared\MySqlSugar.Shared.csproj" />
+    <ProjectReference Include="..\SugarDemo.Shared\SugarDemo.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

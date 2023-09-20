@@ -1,23 +1,4 @@
-﻿using DryIoc;
-using ImTools;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using MS.Client.Common;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-
-namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
+﻿namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
     public class AddRoleViewModel : BindableBase, IDialogAware
     {

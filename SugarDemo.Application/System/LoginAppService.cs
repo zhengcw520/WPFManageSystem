@@ -18,14 +18,14 @@ namespace SugarDemo.Application
         [HttpPost]
         [AllowAnonymous]
         [DisplayName("登录系统")]
-        public async Task<LoginInfoModel> LoginAsync(LoginInput input) 
+        public async Task<LoginDto> LoginAsync(LoginInput input) 
         {
             return await _service.LoginAsync(input);
         }
 
         [HttpPost]
         [DisplayName("注册系统")]
-        public async Task RegisterAsync(UserTBDto user) 
+        public async Task RegisterAsync(UserDto user) 
         {
             await _service.RegisterAsync(user);  
         }

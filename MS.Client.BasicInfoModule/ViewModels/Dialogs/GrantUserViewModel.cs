@@ -1,20 +1,4 @@
-﻿using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using MS.Client.Common;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-using MS.Client.Service;
-
-namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
+﻿namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 {
     public class GrantUserViewModel : BindableBase, IDialogAware
     {
@@ -22,11 +6,11 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 
         public event Action<IDialogResult> RequestClose;
 
-        private ObservableCollection<UserTBDto> users;
+        private ObservableCollection<UserDto> users;
         /// <summary>
         /// 在编辑画面显示的菜单
         /// </summary>
-        public ObservableCollection<UserTBDto> Users
+        public ObservableCollection<UserDto> Users
         {
             get { return users; }
             set { users = value; RaisePropertyChanged(); }
@@ -44,7 +28,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
         private readonly IRoleService roleService;
         public GrantUserViewModel(IUserService _service, IRoleService _roleService)
         {
-            Users = new ObservableCollection<UserTBDto>();
+            Users = new ObservableCollection<UserDto>();
             service = _service;
             btnOKCommand = new DelegateCommand(Save);
             btnCancelCommand = new DelegateCommand(Cancel);
@@ -70,7 +54,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
             }
         }
 
-        List<UserTBDto> userTbDto = new List<UserTBDto>();
+        List<UserDto> userTbDto = new List<UserDto>();
         private async void GetDataById(int id)
         {
             //待看  角色ID获取用户
@@ -100,7 +84,7 @@ namespace MS.Client.BasicInfoModule.ViewModels.Dialogs
 
         private async void Save()
         {
-            List<UserTBDto> currentListUsers = new List<UserTBDto>();
+            List<UserDto> currentListUsers = new List<UserDto>();
             currentListUsers.AddRange(Users);
             List<UserRoleDto> AddList = new List<UserRoleDto>();
             List<UserRoleDto> UpdList = new List<UserRoleDto>();

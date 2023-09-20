@@ -1,10 +1,3 @@
-using Prism.Ioc;
-using Prism.Modularity;
-using Prism.Regions;
-using System;
-using MS.Client.MainModule.ViewModels;
-using MS.Client.MainModule.Views;
-
 namespace MS.Client.MainModule
 {
     public class MainModule : IModule

@@ -7,13 +7,13 @@
         {
             _service = service; 
         }
-        public async Task<SqlSugarPagedList<SysLogVisTBDto>> GetDetailAsync([FromQuery]FindParameter find)
+        public async Task<SugarPagedList<VisLogDto>> GetDetailAsync([FromQuery]FindParameter find)
         {
             var result = await _service.AsQueryable()
                  .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.ActionName!.Equals(find.Search))
                  .OrderBy(u => u.CreateDate)
                  .ToPagedListAsync<SysLogVisTB>(find.PageIndex, find.PageSize);
-            return result.Adapt<SqlSugarPagedList<SysLogVisTBDto>>();
+            return result.Adapt<SugarPagedList<VisLogDto>>();
         }
     }
 }

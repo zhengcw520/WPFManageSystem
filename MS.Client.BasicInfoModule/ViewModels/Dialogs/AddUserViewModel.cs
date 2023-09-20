@@ -1,21 +1,4 @@
-﻿using HandyControl.Controls;
-using HandyControl.Data;
-using Newtonsoft.Json;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.Common;
-using MySqlSugar.Shared;
-using MS.Client.Service;
-
-namespace MS.Client.BasicInfoModule.ViewModels
+﻿namespace MS.Client.BasicInfoModule.ViewModels
 {
     public class AddUserViewModel:BindableBase, IDialogAware
     {
@@ -28,9 +11,9 @@ namespace MS.Client.BasicInfoModule.ViewModels
             return true;
         }
 
-        private UserTBDto current;
+        private UserDto current;
 
-        public UserTBDto Current
+        public UserDto Current
         {
             get { return current; }
             set { current = value; RaisePropertyChanged(); }
@@ -68,7 +51,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
 
             if (type == (int)OperTypeEnum.Add)
             {
-                UserTBDto UserTBDto = new UserTBDto()
+                UserDto UserDto = new UserDto()
                 {
                     UserId = 0,
                     UserName = string.Empty,
@@ -80,13 +63,13 @@ namespace MS.Client.BasicInfoModule.ViewModels
                     CreateBy = "admin",
                     CreateDate = DateTime.Now
                 };
-                Current = UserTBDto;
+                Current = UserDto;
             }
             else
             {
                 if (parameters.ContainsKey("Value"))
                 {
-                    var receiveData = parameters.GetValue<UserTBDto>("Value");
+                    var receiveData = parameters.GetValue<UserDto>("Value");
                     if (receiveData != null) GetDataById(receiveData.UserId);
                 }
             }

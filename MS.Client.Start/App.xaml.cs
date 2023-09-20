@@ -1,23 +1,4 @@
-﻿using Prism.DryIoc;
-using Prism.Ioc;
-using System.Windows;
-using Prism.Modularity;
-using Prism.Services.Dialogs;
-using System;
-using System.Configuration;
-using DryIoc;
-using MS.Client.Service;
-using MS.Client.Start.Views;
-using MS.Client.Start.ViewModels;
-using MS.Client.Common;
-using MS.Client.BasicInfoModule.Views;
-using MS.Client.SysInfoModule.Views.Dialog;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using MS.Client.DAL;
-using MySqlSugar.Shared;
-
-namespace MS.Client.Start
+﻿namespace MS.Client.Start
 {
     /// <summary>
     /// Interaction logic for App.xaml

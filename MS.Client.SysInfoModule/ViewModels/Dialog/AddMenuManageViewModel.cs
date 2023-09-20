@@ -1,22 +1,4 @@
-﻿using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using MS.Client.Common;
-using MS.Client.Service;
-using System.Runtime.CompilerServices;
-using System.Collections.ObjectModel;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-
-namespace MS.Client.SysInfoModule.ViewModels.Dialog
+﻿namespace MS.Client.SysInfoModule.ViewModels.Dialog
 {
     public class AddMenuManageViewModel : BindableBase, IDialogAware
     {

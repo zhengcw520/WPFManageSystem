@@ -1,22 +1,4 @@
-﻿using DryIoc;
-using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Regions;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MS.Client.BasicInfoModule.Views;
-using MS.Client.Common;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using Newtonsoft.Json;
-
-namespace MS.Client.BasicInfoModule.ViewModels
+﻿namespace MS.Client.BasicInfoModule.ViewModels
 {
     public class RoleManageViewModel:NavigationViewModel
     {

@@ -1,23 +1,4 @@
-﻿using DryIoc;
-using HandyControl.Controls;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Regions;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using MS.Client.Common;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using MessageBox = HandyControl.Controls.MessageBox;
-using Newtonsoft.Json;
-
-namespace MS.Client.SysInfoModule.ViewModels
+﻿namespace MS.Client.SysInfoModule.ViewModels
 {
     public class MenuManageViewModel:NavigationViewModel
     {

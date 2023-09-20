@@ -1,30 +1,4 @@
-﻿using DryIoc;
-using HandyControl.Controls;
-using HandyControl.Data;
-using ImTools;
-using Prism.Commands;
-using Prism.Common;
-using Prism.Events;
-using Prism.Ioc;
-using Prism.Mvvm;
-using Prism.Regions;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Windows;
-using MS.Client.BasicInfoModule.Views;
-using MS.Client.Common;
-using MS.Client.Service;
-using MySqlSugar.Shared;
-using MessageBox = HandyControl.Controls.MessageBox;
-using Newtonsoft.Json;
-using SqlSugar;
-
-namespace MS.Client.BasicInfoModule.ViewModels
+﻿namespace MS.Client.BasicInfoModule.ViewModels
 {
     public class UserManageViewModel:NavigationViewModel
     {
@@ -35,15 +9,15 @@ namespace MS.Client.BasicInfoModule.ViewModels
         #endregion
 
         #region 属性
-        private ObservableCollection<UserTBDto> users;
-        public ObservableCollection<UserTBDto> Users
+        private ObservableCollection<UserDto> users;
+        public ObservableCollection<UserDto> Users
         {
             get { return users; }
             set { users = value; RaisePropertyChanged(); }
         }
 
-        public DelegateCommand<UserTBDto> EditCommand { get; set; }
-        public DelegateCommand<UserTBDto> GrantRoleCommand { get; set; }
+        public DelegateCommand<UserDto> EditCommand { get; set; }
+        public DelegateCommand<UserDto> GrantRoleCommand { get; set; }
         #endregion
 
         #region 构造函数
@@ -52,16 +26,16 @@ namespace MS.Client.BasicInfoModule.ViewModels
             : base(region, container, _eventAggregator)
         {
             PageTitle = "用户列表";
-            Users = new ObservableCollection<UserTBDto>();
+            Users = new ObservableCollection<UserDto>();
             userService = _userService;
             dialogService = _dialogService;
-            EditCommand = new DelegateCommand<UserTBDto>(Edit);
+            EditCommand = new DelegateCommand<UserDto>(Edit);
             PageCommond = new DelegateCommand<Pagination>(PageChange);
-            GrantRoleCommand = new DelegateCommand<UserTBDto>(GrantRoleToUser);
+            GrantRoleCommand = new DelegateCommand<UserDto>(GrantRoleToUser);
         }
 
         #endregion
-        private void Edit(UserTBDto obj)
+        private void Edit(UserDto obj)
         {
             try
             {
@@ -77,7 +51,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 {
                     if (callback != null && callback.Result == ButtonResult.OK)
                     {
-                        var user = callback.Parameters.GetValue<UserTBDto>("Value");
+                        var user = callback.Parameters.GetValue<UserDto>("Value");
                         if (user != null)
                         {
                             var result = Users.FirstOrDefault(x => x.UserId == user.UserId);
@@ -111,7 +85,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
                 {
                     if (callback != null && callback.Result == ButtonResult.OK)
                     {
-                        var user = callback.Parameters.GetValue<UserTBDto>("Value");
+                        var user = callback.Parameters.GetValue<UserDto>("Value");
                         if (user != null)
                         {
                             Users.Add(user);    
@@ -155,7 +129,7 @@ namespace MS.Client.BasicInfoModule.ViewModels
         /// 给用户分配角色
         /// </summary>
         /// <param name="obj"></param>
-        private void GrantRoleToUser(UserTBDto obj)
+        private void GrantRoleToUser(UserDto obj)
         {
             try
             {

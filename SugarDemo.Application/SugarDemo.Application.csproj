@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SugarDemo.Core\SugarDemo.Core.csproj" />
+		<ProjectReference Include="..\SugarDemo.Shared\SugarDemo.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

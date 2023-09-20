@@ -39,13 +39,13 @@ namespace SugarDemo.Application
             await _roleService.DeleteAsync(x => x.RoleId == id);
         }
 
-        public async Task<SqlSugarPagedList<RoleDto>> GetPageListAsync(FindParameter find)
+        public async Task<SugarPagedList<RoleDto>> GetPageListAsync(FindParameter find)
         {
             var result = await _roleService.AsQueryable()
             .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.RoleName!.Equals(find.Search))
             .OrderBy(u => u.RoleId)
             .ToPagedListAsync<RoleTB>(find.PageIndex,find.PageSize);
-            return result.Adapt<SqlSugarPagedList<RoleDto>>();
+            return result.Adapt<SugarPagedList<RoleDto>>();
         }
 
         public async Task<List<RoleDto>> GetAllAsync()
@@ -74,13 +74,13 @@ namespace SugarDemo.Application
             return dtoList;
         }
 
-        public async Task<List<UserTBDto>> GetUsersByRoleIdAsync(int roleId)
+        public async Task<List<UserDto>> GetUsersByRoleIdAsync(int roleId)
         {
             var result = await _userService.AsQueryable()
                 .LeftJoin<UserRoleTB>((u, ur) => u.UserId == ur.UserId)
                 .Where((u, ur)=>ur.RoleId == roleId)
                 .ToListAsync();
-            var dtoList = result.Adapt<List<UserTBDto>>();
+            var dtoList = result.Adapt<List<UserDto>>();
             return dtoList;
         }
 

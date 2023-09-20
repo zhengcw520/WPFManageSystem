@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MS.Client.Assets\MS.Client.Assets.csproj" />
     <ProjectReference Include="..\MS.Client.Service\MS.Client.Service.csproj" />
-    <ProjectReference Include="..\MySqlSugar.Shared\MySqlSugar.Shared.csproj" />
+    <ProjectReference Include="..\SugarDemo.Shared\SugarDemo.Shared.csproj" />
   </ItemGroup>
 
 </Project>

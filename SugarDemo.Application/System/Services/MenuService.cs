@@ -24,13 +24,13 @@
             return result.Adapt<List<MenuDto>>();
         }
 
-        public async Task<SqlSugarPagedList<MenuDto>> GetPageListAsync(FindParameter find)
+        public async Task<SugarPagedList<MenuDto>> GetPageListAsync(FindParameter find)
         {
             var result = await _menuService.AsQueryable()
                 .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.MenuName!.Equals(find.Search))
                 .OrderBy(u => u.MenuId)
                 .ToPagedListAsync<MenuTB>(find.PageIndex, find.PageSize);
-            return result.Adapt<SqlSugarPagedList<MenuDto>>();
+            return result.Adapt<SugarPagedList<MenuDto>>();
         }
 
         public async Task<MenuDto> GetSingleAsync(int id)

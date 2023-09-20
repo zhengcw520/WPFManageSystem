@@ -17,13 +17,13 @@
         /// <param name="find"></param>
         /// <returns></returns>
         [DisplayName("获取操作日志分页数据")]
-        public async Task<SqlSugarPagedList<SysLogOpTBDto>> GetPageListAsync([FromQuery]FindParameter find)
+        public async Task<SugarPagedList<OpLogDto>> GetPageListAsync([FromQuery]FindParameter find)
         {
             var result = await _service.AsQueryable()
                 .WhereIF(!string.IsNullOrEmpty(find.Search), it => it.ActionName!.Equals(find.Search))
                 .OrderBy(u => u.CreateDate)
                 .ToPagedListAsync<SysLogOpTB>(find.PageIndex, find.PageSize);
-            return result.Adapt<SqlSugarPagedList<SysLogOpTBDto>>();
+            return result.Adapt<SugarPagedList<OpLogDto>>();
         }
     }
 }

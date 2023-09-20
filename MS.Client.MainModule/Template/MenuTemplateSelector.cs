@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
-using MS.Client.MainModule.Models;
-
-namespace MS.Client.MainModule.Template
+﻿namespace MS.Client.MainModule.Template
 {
     public class MenuTemplateSelector : DataTemplateSelector
     {
